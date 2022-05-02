@@ -5,7 +5,7 @@ export const listProducts = () => async (dispatch) => {
         type: PRODUCT_LIST_REQUEST
     });
     try {
-        const { data } = await Axios.get('/api/products');
+        const { data } = await Axios.get('https://evening-bayou-13792.herokuapp.com/api/products');
         dispatch({type: PRODUCT_LIST_SUCCES, payload: data})
     } catch (error) {
         dispatch({
