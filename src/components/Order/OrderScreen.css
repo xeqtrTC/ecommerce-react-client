@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500&display=swap');
+
+.order-full {
+    font-family: 'M PLUS 2', sans-serif;
+    color: #4a4b65;
+
+    width: 90%;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: flex;
+}
+.order-left {
+    width: 65%;
+}
+.order-right {
+    border-radius: 12px;
+    background-color: #f7f7fc;
+    width: 35%;
+    height: 25%;
+    padding: 0.5rem;
+}
+.order-info {
+    width: 17rem;
+    margin-top: 0;
+}
+.order-one {
+    border-radius: 12px;
+    padding: 0.5rem;
+    display: flex;
+    background-color: #f7f7fc;
+    width: 95%;
+
+}
+.order-two {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+
+    width: 95%;
+    background-color: #f7f7fc;
+}
+
+.order-image {
+
+    display: flex;
+} 
+.order-row-bottom img {
+    width: 5rem;
+    background-color: #fff;
+    padding: 0.2rem;
+    border-radius: 12px;
+    height: 5rem;
+} 
+.order-min-30 {
+    margin-left: 4rem;
+
+    width: 14rem
+}
+.order-qty-cart {
+    width: 2rem;
+}
+.order-products li {
+    padding: 1rem 0;
+}
+.order-min-30 a {
+    width: 4rem;
+    text-decoration: none;
+    color: #4a4b65;
+}
+.order-qty-cart, .order-price-cart {
+    margin-left: 4rem;
+}
+.order-two ul {
+    list-style-type: none;
+}
+.order-row-bottom {
+    align-items: center;
+    display: flex;
+}
+.info {
+    padding: 0 7rem;
+}
+.order-right button {
+    outline: none;
+    border: none;
+    background-color: #766DF4;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.order-right button:hover {
+    background-color: #5549f1;
+}
+.loading-frame {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    border: solid 5px #fff;
+    border-top: solid 5px #3498db;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: loading 1s infinite linear
+}
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@media screen and (max-width: 960px)  {
+    .order-full {
+        flex-direction: column;
+    }
+    .order-row-bottom img {
+        width: 3rem;
+        height: 3rem;
+    }
+    .order-min-30 {
+        width: 8rem;
+        margin-left: 1rem;
+    }
+    .order-products li, .order-products ul {
+        padding: 0;
+    }
+    .order-qty-cart, .order-price-cart {
+        margin-left: 1rem;
+    }
+    .order-left {
+        width: 100%;
+    }
+    .order-right {
+        margin-top: 1rem;
+        width: 95%;
+    }
+    
+}

@@ -1,0 +1,82 @@
+.userListImg {
+    display: flex;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+.editButton {
+    border: none;
+    outline: none;
+    background-color: #3bb077;
+    padding: 5px;
+    border-radius: 10px;
+    color: #fff;
+    width: 3rem;
+    cursor: pointer
+}
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+.deleteButton {
+    width: 2rem;
+    height: 2rem;
+
+    margin-left: 1rem;
+    color: red;
+    cursor: pointer
+}
+.datagrid-container {
+    height: 100vh;
+    width: 100%;
+}
+.datagrid-right {
+    margin-top: 5rem;
+    width: 100%;
+    height: 30rem
+}
+.product-order-table {
+    margin-top: 1rem;
+    width: 95%;
+    border-style: 20px;
+    margin-left: 1rem;
+}
+.product-order-th {
+    text-align: left;
+    margin-left: 15px;    
+    padding: 0;
+}
+.product-order-picture {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.product-order-picture img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 2.5rem;
+    margin-top: 5px;
+    height: 2.5rem;
+}
+.product-order-rest {
+    font-size: 16px;
+
+}
+.product-order-span {
+    font-weight: bold;
+    margin-left: 10px;
+}
+.product-order-info {
+    margin-top: 1rem
+}
+.product-order-button  {
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgb(197, 63, 63);
+}

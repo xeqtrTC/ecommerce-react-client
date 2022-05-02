@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500&display=swap');
+
+
+.product-screen-container {
+    display: flex;
+    padding-left: 4rem;
+    font-family: 'M PLUS 2', sans-serif;
+
+}
+.product-screen-image {
+    margin-top: 3rem;
+}
+.product-screen-p-h1 {
+    font-size: 40px;
+    color: #4a4b65;
+    font-weight: 600;
+}
+.product-screen-image-real {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40rem;
+    height: 25rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+.product-screen-image-real img {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+}
+.product-screen-addtocart {
+    background-color: #f7f7fc;
+    padding: 1rem;
+    margin-left: 5rem;
+}
+.product-screen-price {
+    width: 100%;
+    margin-left: 2rem;
+}
+.product-screen-price-info {
+    margin-top: 5rem;
+    font-size: 22px;
+    color: #4a4b65;
+
+}
+.product-screen-addtocart-more {
+    margin-top: 5rem;
+}
+.product-screen-addtocart-more select {
+    width: 6rem;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid black;
+    font-size: 13px;
+    border-radius: 5px;
+}
+.product-screen-addtocart-more button {
+    margin-left: 1rem;
+    border: none;
+    outline: none;
+    background-color: #766DF4;
+    padding: 1rem 5rem;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 17px;
+}
+.product-screen-addtocart-more button:hover {
+    background-color: #5549f1;
+}
+.product-screen-description {
+    margin-top: 2rem;
+    color: #4a4b65;
+    font-size: 16px;
+}
+.linebreal-product {
+    width: 100%;
+    margin-top: 3rem;
+    background-color: #4a4b65;
+    height: 1px;
+}
+.product-screen-productid {
+    margin-top: 2rem;
+    color: #4a4b65;
+
+}
+.product-screen-productid  p {
+    margin: 5px;
+    font-size: 15px;
+}
+.product-screen-review {
+    padding: 1rem;
+    display: flex;
+    width: 90%;
+    margin: 3rem auto;
+
+}
+.linebreal-product-two {
+    width: 100%;
+    background-color: #4a4b65;
+
+    height: 1px;
+}
+
+.product-screen-left {
+    width: 45rem;
+}
+.product-screen-left-text {
+    color: #4a4b65;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+.product-screen-left-user {
+    margin-left: 2rem;
+    color: #4a4b65;
+}
+.linebreal-product-three {
+    height: 1px;
+    background-color: #4a4b65;
+
+}
+.product-screen-right {
+    background-color: #f7f7fc;
+    border-radius: 16px;
+    height: 25rem;
+    width: 20rem;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+.product-screen-right span {
+    color: #4a4b65;
+    font-size: 18px;
+
+}
+.product-screen-textarea {
+    margin-top: 2rem;
+}
+.product-screen-textarea span {
+    margin-left: 1rem;
+    font-size: 15px;
+}
+.product-screen-textarea textarea {
+    width: 90%;
+    margin-top: 0.2rem;
+    border-radius: 12px;
+    outline: none;
+    height: 7rem;
+    padding: 1rem;
+}
+.product-screen-text-area-button {
+    display: flex;
+    margin-top: 1rem;
+}
+.product-screen-text-area-button button {
+    outline: none;
+    border: none;
+    background-color: #766DF4;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+
+    
+}
+.product-screen-text-area-button button:hover {
+    background-color: #5549f1;
+
+}
+
+
+@media screen and (max-width: 960px) {
+    .product-screen-container {
+        flex-direction: column;
+        padding: 0;
+    }
+    .product-screen-p-h1 {
+        font-size: 20px;
+    }
+    .product-screen-image-real img {
+        width: 10rem;
+        height: 10rem;
+    }
+    .product-screen-image-real {
+        width: 20rem;
+        height: 15rem;
+    }
+    .product-screen-addtocart-more {
+        margin-left: 0;
+    }
+    .product-screen-addtocart {
+        margin-left: 0;
+        padding: 0;
+    }
+    .product-screen-addtocart-more select {
+        width: 3rem;
+        padding: 1rem 0.5rem;
+
+    }
+    .product-screen-price {
+        width: 80%;
+    }
+    .product-screen-review {
+        flex-direction: column;
+    }
+    .product-screen-productid {
+        padding: 2rem 0rem;
+        margin: 0;
+    }
+    
+    .product-screen-left {
+        width: 100%;
+    }
+    .product-screen-right {
+        margin: 0;
+        margin-top: 1rem;
+        width: 80%;
+    }
+    .product-screen-image  {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,40 @@
+.admin-adduser-container {
+    height: 100vh;
+    margin-top: 5rem;
+    padding: 0 1rem 1rem 1rem;
+}
+.admin-adduser-inputs {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+.admin-adduser-inputs input {
+    margin-top: 0.5rem;
+    padding: 10px;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+.admin-adduser-inputs label:nth-child(1) {
+    margin-top: 1rem;
+} 
+.admin-adduser-inputs-email {
+    margin-top: 1rem;
+}
+
+.admin-adduser-button {
+    width: 20rem;
+    margin-top: 1rem;
+    text-align: center;
+
+}
+.admin-adduser-button button {
+    padding: 5px;
+    background-color: rgb(1,0,113);
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}

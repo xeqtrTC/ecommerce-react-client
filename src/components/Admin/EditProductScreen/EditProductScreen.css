@@ -1,0 +1,98 @@
+.editproduct-container {
+    height: 100vh;
+
+}
+.editproduct-info {
+    padding: 1rem;
+    margin-top: 5rem;
+    display: flex;
+}
+.editproduct-details {
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    width: 20rem;
+    height: 15rem;
+    padding: 1rem
+}
+.editproduct-image {
+    display: flex;
+    align-items: center;
+    object-fit: cover;
+}
+.editproduct-image img {
+    width: 2.5rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.editproduct-image span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+.editproduct-product {
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+.editproduct-id {
+    font-weight: bold;
+}
+.editproduct-update {
+    padding: 1rem;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 15rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.editproduct-update-info {
+    width: 20rem;
+    height: 100%;
+}
+.editproduct-update-inputs {
+}
+.editproduct-update-inputs input {
+    padding: 10px;
+    border: none;
+    color: grey;
+    outline: none;
+    border-bottom: 1px solid grey;
+    width: 80%;
+}
+.editproduct-update-image img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.edit-img {
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+}
+.edit-img svg {
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+}
+.editproduct-container form {
+    display: flex;
+}
+.editproduct-update-button {
+    margin-top: 12rem;
+}
+.editproduct-update-button button {
+    width: 5rem;
+    background-color: rgb(1,0,113);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+}

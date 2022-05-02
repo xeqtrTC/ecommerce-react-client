@@ -1,0 +1,29 @@
+.order-container {
+    height: 100vh;
+    border: 1px solid red;
+
+}
+.order-box {
+    border: 1px solid blue;
+    margin-top: 5rem;
+    height: 30rem;
+}
+
+.editButton {
+    border: none;
+    outline: none;
+    background-color: #3bb077;
+    padding: 5px;
+    border-radius: 10px;
+    color: #fff;
+    width: 3rem;
+    cursor: pointer
+}
+.deleteButton {
+    width: 2rem;
+    height: 2rem;
+
+    margin-left: 1rem;
+    color: red;
+    cursor: pointer
+}

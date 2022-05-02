@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500&display=swap');
+
+.signup-container {
+    height: 80vh;
+    font-family: 'M PLUS 2', sans-serif;
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.signup-form {
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+    padding: 1rem;
+    width: 40rem;
+    border-radius: 12px;
+}
+.signupalert {
+    color: #4a4b65;
+    font-size: 25px;
+    font-weight: 500;
+}
+.signup-form-inputs-info {
+    margin-top: 1rem;
+    width: 20rem;
+}
+.signup-form-inputs-info label {
+    margin-left: 0.5rem;
+    color: #4a4b65;
+    font-size: 15px;
+}
+.signup-form-inputs-info input {
+    padding: 0.7rem;
+    width: 15rem;
+    transition: 1s ease-in;
+
+    margin-top: 0.2rem;
+    border-radius: 12px;
+    border: 1px solid #dfdfed;
+    outline: none;
+}
+
+.signup-form-inputs form {
+    display: flex;
+}
+
+.signup-submit {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+.signup-form-inputs-info input:valid {
+    border: 1px solid #5549f1;
+    transition: 1s ease-in;
+}
+.signup-submit button {
+    outline: none;
+    border: none;
+    background-color: #766DF4;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.signup-submit button:hover {
+    background-color: #5549f1;
+
+}
+.signup-submit a {
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #4a4b65;
+
+}
+.signup-error {
+    background-color: #F74F78;
+    text-align: center;
+    color: #fff;
+    border-radius: 12px;
+
+}
+.submit-signup-button {
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width: 960px) {
+    
+    .signup-form {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .signup-form-inputs form {
+        display: flex;
+        flex-direction: column;
+    }
+    .signup-error {
+        margin-top: 1rem;
+    }
+    
+  }

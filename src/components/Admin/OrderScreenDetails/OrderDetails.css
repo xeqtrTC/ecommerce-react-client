@@ -1,0 +1,147 @@
+.orderdetails-container {
+    height: 100vh;
+}
+.orderdetails-top {
+    margin-top: 5rem;
+    padding: 0 1rem ;
+}
+.backto {
+    background-color: rgb(48, 45, 221);
+    padding: 5px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.orderdetails-details {
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+    margin-top: 2rem;
+    width: 100%;
+    border-radius: 10px;
+}
+.orderdetails-date {
+    padding: 10px;
+    background-color:#4D60B2;
+    height: 4rem;
+}
+.orderdetails-date-flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.margin-left {
+    margin-left: 10px;
+    color: #fff;
+}
+.order-details-orderid {
+    margin-left: 10px;
+    color: #fff;
+}
+.orderdetails-info {
+    padding: 1rem;
+}
+.orderdetails-info-flex-details {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.orderdetails-date-flex svg {
+    color: #fff;
+}
+
+.orderdetails-customer svg, .orderdetails-paymentmethod svg, .orderdetails-address svg {
+    background-color:  #B29F4D;
+    border-radius: 50%;
+    padding: 5px;
+    color: #fff;
+}
+.orderdetails-customer, .orderdetails-paymentmethod, .orderdetails-address{
+    display: flex;
+}
+
+.orderdetails-customer-info, .orderdetails-paymentmethod-info, .orderdetails-address-info {
+    margin-left: 10px;
+}
+.orderdetails-customer-info p, .orderdetails-paymentmethod-info p, .orderdetails-address-info p {
+    margin: 10px 0;
+    font-size: 15px;
+}
+.orderdetails-info-details {
+    font-weight: bold;
+}
+.orderdetails-info-product {
+    margin-top: 3rem;
+    display: flex;
+}
+.orderdetails-info-productdetails {
+    background-color: rgb(247, 247, 247);
+    border-radius: 10px;
+    width: 70%;
+    height: 20rem;
+}
+.orderdetails-picture img {
+    width: 3rem;
+    height: 3rem;
+}
+.orderdetails-info-header {
+    padding: 5px;
+    border-bottom: 2px solid black;
+}
+.product {
+    width: 40%;
+}
+.orderdetails-info-header ul, .orderdetails-info-body ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
+.price {
+    width: 20%;
+}
+.orderdetails-info-body {
+    border-bottom: 1px solid grey;
+}
+.orderdetails-info-body img {
+    width: 3rem;
+    height: 3rem;
+}
+.orderdetails-info-body-img {
+    width: 10%;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    
+
+}
+.orderdetails-name-body {
+    width: 30%;
+}
+
+.orderdetails-info-body ul li {
+    display: flex;
+    align-items: center;
+}
+
+.orderdetails-info-product-button {
+    width: 25%;
+    margin-left: 2rem;
+    background-color: rgb(231,231,231);
+    padding: 10px;
+    height: 100%;
+    border-radius: 10px;
+
+}
+.orderdetails-info-product-button button {
+    width: 100%;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:rgb(48, 45, 221) ;
+}

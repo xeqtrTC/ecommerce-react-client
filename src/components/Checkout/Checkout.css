@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500&display=swap');
+
+.shipping-row {
+    font-family: 'M PLUS 2', sans-serif;
+    color: #4a4b65;
+
+    width: 80%;
+    padding: 0.5rem;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.shipping-list {
+    justify-content: center;
+    width: 40%;
+    margin: 0 auto;
+}
+.shipping-list label {
+    font-size: 15px;
+    margin-left: 0.5rem;
+}
+.shipping-address, .shipping-city, .shipping-postal {
+    margin-top: 2rem;
+}
+
+
+.shipping-list input  {
+    margin-top: 0.3rem;
+    width: 100%;
+    height: 2rem;
+    outline: none;
+    border: 1px solid;
+    padding: 0.3rem 0.5rem;
+    border-radius: 12px;
+    border-color: #dfdfeb;
+}
+.shipping-submit {
+    margin-top: 2rem;
+}
+.shipping-list button {
+    outline: none;
+    border: none;
+    background-color: #766DF4;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.shipping-list button:hover {
+    background-color: #5549f1;
+}
+@media screen and (max-width: 960px) {
+    .shipping-list {
+        width: 90%;
+    }
+}

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500&display=swap');
+
+.loginscreen-container {
+    height: 70vh;
+        color: #4a4b65;
+
+    display: flex;
+    font-family: 'M PLUS 2', sans-serif;
+    align-items: center;
+    justify-content: center;
+    background-color: #F7F7FC;
+}
+.loginscreen-loginform {
+    width: 23rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+.loginscreen-info {
+    text-align: center;
+}
+.singinspan {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+}
+.signinpara {
+    margin: 0;
+    margin-top: 10px;
+    color: #9e9fb4;
+    font-size: 13px;
+}
+.loginscreen-inputs form {
+    display: flex;
+    flex-direction: column
+    
+}
+.loginscreen-inputs {
+    margin-top: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.loginscreen-inputs input {
+    margin-top: 1rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #DFDFEB;
+}
+.loginscreen-error {
+    padding: 0.3rem;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background-color: #F74F78;
+}
+.loginscreen-inputs input::placeholder {
+    font-weight: bold;
+    font-size: 15px;
+    color: #9e9fb4;
+}
+.loginscreen-inputs button {
+    margin-top: 2rem;
+    outline: none;
+    border: none;
+    background-color: #766DF4;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.loginscreen-inputs button:hover {
+    background-color: #5549f1;
+
+}
+.loginaccount {
+    margin-top: 1rem;
+    font-size: 15px;
+    font-weight: 0;
+    color: #9e9fb4;
+}
+.loginaccount a {
+    text-decoration: none;
+    color: #766DF4;
+}
+
+@media screen and (max-width: 960px) {
+    .loginscreen-container {
+        height: 60vh;
+    }
+    .loginscreen-loginform  {
+        width: 75%;
+        margin: 0 auto;
+    }
+    .loginscreen-error {
+        font-weight: 300;
+    }
+}

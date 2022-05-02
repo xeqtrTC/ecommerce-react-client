@@ -1,0 +1,116 @@
+.admin-edituser {
+    padding: 1rem;
+    height: 100vh;
+    border: 1px solid red;
+}
+.admin-user-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.admin-back-page {
+    font-weight: bold;
+    
+    margin-top: 4rem;
+}
+.admin-back-page a {
+    text-decoration: none;
+    color: black;
+}
+.admin-edituser h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+.admin-edituser-title {
+    margin-top:5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.admin-edituser-title button {
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: bold;
+    color: #fff;
+    outline: none;
+    border: none;
+    background-color: rgb(2,128,130);
+}
+.admin-details {
+    border-radius: 10px;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 20rem;
+    height: 20rem;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+}
+
+.admin-details ul {
+    margin-left: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+.admin-details li {
+    padding: 10px 0;
+}
+.admin-li {
+    display: flex;
+    align-items: center;
+}
+.admin-details svg {
+    font-size: 18px;
+    margin-right: 10px;
+}
+.user-title {
+    font-size: 16px;
+
+    font-weight: bold;
+}
+.admin-edit {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 41rem;
+    height: 20rem;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.admin-edit-name {
+    width: 15rem;
+    margin-left: 1rem;
+    display: flex;
+
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.admin-edit span {
+    height: 10px;
+    font-weight: bold;
+}
+.admin-edit-name label {
+    font-size: 15px;
+}
+.admin-edit-name input {
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+}
+.admin-user-right {
+    margin-top: 17rem;
+    margin-left: 7rem;
+}
+.admin-user-right button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgb(1,0,113);
+}

@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500&display=swap');
+
+.cartscreen-container { 
+    font-family: 'M PLUS 2', sans-serif;
+
+    display: flex;
+    padding: 1rem;
+}
+.cartscreen-left {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.cartscreen-h1 {
+    width: 90%;
+    margin: 0 auto;
+    
+}
+.yourcart {
+    color: #4a4b65;
+    font-size: 20px;
+    font-weight: 600;
+}
+.cartscreen-info {
+    color: #4a4b65;
+    border-bottom: 1px solid #4a4b65;
+    padding: 1rem;
+
+    align-items: center;
+    display: flex;
+    margin-top: 1rem;
+}
+.cartscreen-productname {
+    width: 17rem;
+    display: flex;
+    align-items: center;
+}
+.cartscreen-productname img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    background-color: #F7F7FC;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+.productname {
+    margin-left: 1rem;
+}
+.cartscreen-productname a {
+    text-decoration: none;
+    color: #4a4b65;
+}
+.cartscreen-qty {
+    width: 12rem;
+}
+.cartscreen-qty select {
+    width: 5rem;
+    height: 2rem;
+    border-radius: 5px;
+    outline: none;
+}
+.cartscreen-price {
+    width: 8rem;
+}
+.cartscreen-delete svg {
+    color: red;
+    cursor: pointer;
+}
+.cartscreen-right {
+    background-color: #f7f7fc;
+    width: 40%;
+    height: 20%;
+    border-radius: 12px;
+    margin-left: 10px;
+}
+.cartscreen-width {
+    width: 80%;
+    margin: 4rem auto;
+}
+.totalscreen-total {
+    color: #4a4b65;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.cartscreen-button {
+    margin-top:4rem;
+    display: flex;
+    justify-content: center;
+
+}
+.cartscreen-button button {
+    outline: none;
+    border: none;
+    background-color: #766DF4;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.cartscreen-button button:hover {
+    background-color: #5549f1;
+
+}
+.cartempty {
+    margin-left: 3rem;
+
+    color: #4a4b65;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 960px) {
+    .cartscreen-container {
+        flex-direction: column;
+    }
+    
+    .cartscreen-right {
+        width: 90%;
+        margin-top: 1rem;
+    }
+    .cartscreen-left {
+        width: 100%;
+    }
+    .cartscreen-info {
+        padding: 0.2rem;
+    }
+    .cartscreen-productname span {
+        font-size: 14px;
+    }
+    .cartscreen-qty select {
+        width: 2rem;
+    }
+    .cartscreen-qty {
+        width: 4rem;
+    }
+    
+}

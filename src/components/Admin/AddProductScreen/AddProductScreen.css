@@ -1,0 +1,83 @@
+.addproduct-container {
+    height: 100vh;
+    
+}
+.addproduct-info {
+    display: flex;
+    padding: 1rem;
+    margin-top: 5rem;
+}
+.addproduct-info span {
+    font-size: 22px;
+}
+.addproduct-add-details {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.addproduct-details {
+    width: 22rem;
+}
+.addproduct-add-details input {
+    margin-top: 10px;
+    width: 20rem;
+    padding: 10px;
+}
+.addproduct-add-details label {
+    font-weight: bold;
+    color: grey;
+}
+.addproduct-rest {
+    margin-top: 8rem;
+}
+.addproduct-price, .addproduct-qty, .addproduct-desc {
+    display: flex;
+    flex-direction: column;
+}
+.addproduct-price label {
+    color: grey;
+    font-weight: bold;
+    margin-top: -10px;
+}
+.addproduct-desc label {
+    color: grey;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.addproduct-desc input {
+    padding: 10px;
+    margin-top: 10px;
+    width: 20rem;
+}
+.addproduct-price input {
+    padding: 10px;
+    margin-top: 8px;
+    width: 20rem;
+}
+.addproduct-qty label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: grey;
+}
+.addproduct-qty input {
+    margin-top: 10px;
+    padding: 10px;
+    width: 20rem;
+}
+.addproduct-button {
+    margin-top: 18.9rem;
+    margin-left: 1rem;
+
+}
+.addproduct-button button{
+    padding: 10px;
+    width: 10rem;
+    border: none;
+    outline: none;
+    background-color: rgb(1,0,113);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+
+}

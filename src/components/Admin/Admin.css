@@ -1,0 +1,9 @@
+
+.container {
+    display: flex;
+}
+.admin-left {
+    background-color: #fff;
+    flex: 4;
+    border: 1px solid black;
+}
