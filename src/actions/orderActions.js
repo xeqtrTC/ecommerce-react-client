@@ -8,7 +8,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
     try {
         const { userSignIn: {userInfo}} = getState();
         console.log(userInfo)
-        const { data } = await Axios.post('/api/orders', order, {
+        const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/api/orders', order, {
             headers: {
                 authorization: `Bearer ${userInfo.token}`
             }
@@ -25,7 +25,7 @@ export const listOrder = () => async (dispatch) => {
     dispatch({ type: ORDER_LIST_REQUEST })
 
     try {
-        const { data } = await Axios.get(`/api/orders`);
+        const { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/orders`);
 
         dispatch({ type: ORDER_LIST_SUCCESS, payload: data})
     } catch (error) {
@@ -39,7 +39,7 @@ export const detailsOrder = (orderID) => async (dispatch) => {
     dispatch({ type: ORDER_DETAILS_REQUEST, payload: orderID })
 
     try {
-        const { data } = await Axios.get(`/api/orders/${orderID}`);
+        const { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/orders/${orderID}`);
         console.log(data);
         dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data})
     } catch (error) {
@@ -51,7 +51,7 @@ export const lastTenOrders = () => async (dispatch) => {
     dispatch({ type: ORDER_LASTTEN_REQUEST})
 
     try {
-        const { data } = await Axios.get('/api/orders/lasttenlist')
+        const { data } = await Axios.get('https://evening-bayou-13792.herokuapp.com/api/orders/lasttenlist')
         dispatch({ type: ORDER_LASTTEN_SUCCESS, payload: data})
     } catch (error) {
         dispatch({ type: ORDER_LASTTEN_FAIL, payload: error.message})

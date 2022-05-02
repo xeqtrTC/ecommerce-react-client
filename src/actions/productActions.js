@@ -18,7 +18,7 @@ export const listFullProducts = () => async( dispatch) => {
     dispatch({ type: PRODUCT_LISTFULL_REQUEST})
 
     try {
-        const { data } = await Axios.get(`/api/products/list`)
+        const { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/products/list`)
         dispatch({ type: PRODUCT_LISTFULL_SUCCESS, payload: data})
     } catch (error) {
         dispatch({ type: PRODUCT_LISTFULL_FAIL, payload: error.message})
@@ -28,7 +28,7 @@ export const listFullProducts = () => async( dispatch) => {
 export const searchProducts = (keyword) => async (dispatch) => {
     dispatch({ type: PRODUCT_SEARCH_REQUEST});
     try {
-        const { data } = await Axios.post(`/api/products/search`, {keyword})
+        const { data } = await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/products/search`, {keyword})
         dispatch({ type: PRODUCT_SEARCH_SUCCESS, payload: data})
     } catch (error) {
         dispatch({ type: PRODUCT_SEARCH_FAIL, payload: error.message})
@@ -39,7 +39,7 @@ export const searchProducts = (keyword) => async (dispatch) => {
 export const detailsProduct = (productId) => async(dispatch) => {
     dispatch({type: PRODUCT_DETAILS_REQUEST, payload: productId})
     try {
-        const { data } = await Axios.get(`/api/products/${productId}`);
+        const { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/products/${productId}`);
         console.log(data);
 
         dispatch({type: PRODUCT_DETAILS_SUCCESS, payload: data})
@@ -52,7 +52,7 @@ export const createProduct = (name, description, countInStock, price, category, 
     const { userSignIn: {userInfo},} = getState();
 
     try {
-        const { data } = await Axios.post('/api/products', {name, description, countInStock, price, category, brand, image}, {
+        const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/api/products', {name, description, countInStock, price, category, brand, image}, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         });
         dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data.product})
@@ -67,7 +67,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
     const { userSignIn: {userInfo},} = getState();
 
     try {
-            await Axios.post(`/api/products/${id}`, {
+            await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/products/${id}`, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         });
         dispatch({ type: PRODUCT_DELETE_SUCCESS})
@@ -80,7 +80,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
 export const editProduct = (productId) => async(dispatch) => {
     dispatch({type: PRODUCT_EDIT_REQUEST, payload: productId})
     try {
-        const { data } = await Axios.get(`/api/products/${productId}`);
+        const { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/products/${productId}`);
         console.log(data);
 
         dispatch({type: PRODUCT_EDIT_SUCCESS, payload: data})
@@ -93,7 +93,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     const { userSignIn: {userInfo},} = getState();
 
     try {
-        const { data } = await Axios.post(`/api/products/update/${product.id}`, product, {
+        const { data } = await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/products/update/${product.id}`, product, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         });
         console.log(data);
@@ -110,7 +110,7 @@ export const categoryList = (category) => async (dispatch) => {
     dispatch({ type: CATEGORY_LIST_REQUEST, payload: category});
 
     try {
-        const { data } = await Axios.get(`/api/products/category/${category}`)
+        const { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/products/category/${category}`)
         console.log(data);
         dispatch({ type: CATEGORY_LIST_SUCCESS, payload: data})
     } catch (error) {
@@ -123,7 +123,7 @@ export const addReview = (productId, review) => async (dispatch, getState) => {
     const { userSignIn: {userInfo},} = getState();
 
     try {
-         await Axios.post(`/api/products/addreview/${productId}`, {review}, {
+         await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/products/addreview/${productId}`, {review}, {
                 headers: { Authorization: `Bearer ${userInfo.token}`}
         });
         console.log(review);
@@ -136,7 +136,7 @@ export const addReview = (productId, review) => async (dispatch, getState) => {
 export const listOfReview  = () => async (dispatch) => {
     dispatch({type: REVIEW_LIST_REQUEST});
     try {
-        const { data } = await Axios.get('/api/products/listreview')
+        const { data } = await Axios.get('https://evening-bayou-13792.herokuapp.com/api/products/listreview')
 
         dispatch({type: REVIEW_LIST_SUCCESS, payload: data})
     } catch (error)  {
@@ -149,7 +149,7 @@ export const deleteReview = (id) => async (dispatch, getState) => {
     const { userSignIn: {userInfo}} = getState();
 
     try {
-        await Axios.post(`/api/products/listreviewdelete/${id}`, {
+        await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/products/listreviewdelete/${id}`, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         })
         dispatch({ type: REVIEW_DELETE_SUCCESS})

@@ -5,7 +5,7 @@ export const signin = (name, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { name, password}})
 
     try {
-        const { data } = await Axios.post('/api/users/signin', {name, password})
+        const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/api/users/signin', {name, password})
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data})
         console.log(data)
         localStorage.setItem('userInfo', JSON.stringify(data))
@@ -22,7 +22,7 @@ export const register = (name, email, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { name, email, password}})
 
     try {
-        const { data } = await Axios.post('/api/users/register', {name, email, password})
+        const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/api/users/register', {name, email, password})
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data})
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data})
 
@@ -39,7 +39,7 @@ export const register = (name, email, password) => async (dispatch) => {
 export const usersList = () => async (dispatch) => {
     dispatch({type: USER_LIST_REQUEST})
     try {
-        const { data } = await Axios.get('/api/users/');
+        const { data } = await Axios.get('https://evening-bayou-13792.herokuapp.com/api/users/');
         console.log(data);
         dispatch({ type: USER_LIST_SUCCESS, payload: data})
 
@@ -52,7 +52,7 @@ export const editUser = (id) => async( dispatch) => {
     dispatch({ type: USER_EDIT_REQUEST, payload: id})
 
     try {
-        const  { data } = await Axios.get(`/api/users/${id}`);
+        const  { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/users/${id}`);
 
         dispatch({ type: USER_EDIT_SUCCESS, payload: data})
     } catch(error) {
@@ -65,7 +65,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
     const { userSignIn: {userInfo},} = getState();
 
     try {
-        const { data } = Axios.post(`/api/users/update/${user.id}`, user, {
+        const { data } = Axios.post(`https://evening-bayou-13792.herokuapp.com/api/users/update/${user.id}`, user, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         })
         dispatch({ type: USER_UPDATE_SUCCESS, payload: data})
@@ -82,7 +82,7 @@ export const addUser = (name, email, password) => async (dispatch, getState) => 
 
 
     try {
-        const { data } = await Axios.post('/api/users/register', {name, email, password}, {
+        const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/api/users/register', {name, email, password}, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         })
         dispatch({ type: USER_ADD_SUCCESS, payload: data})
@@ -99,7 +99,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
     const { userSignIn: {userInfo},}  = getState();
 
     try {
-        await Axios.post(`/api/users/${id}`, {
+        await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/users/${id}`, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         })
         dispatch({ type: USER_DELETE_SUCCESS})
@@ -112,7 +112,7 @@ export const lastTenListUsers = () => async (dispatch) => {
     dispatch({type: USER_LASTTEN_REQUEST})
     
     try {
-        const { data } = await Axios.get('/api/users/listten')
+        const { data } = await Axios.get('https://evening-bayou-13792.herokuapp.com/api/users/listten')
         dispatch({ type: USER_LASTTEN_SUCCESS, payload: data})
     } catch (error) {
         dispatch({ type: USER_LASTTEN_FAIL, payload: error})

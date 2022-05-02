@@ -2,7 +2,7 @@ import Axios from 'axios'
 import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_SHIPPING_ADDRESS, CART_SAVE_PAYMENT_METHOD} from "../constants/cardConstants";
 
 export const addToCart = (productId, qty) => async (dispatch, getState) => {
-    const { data } = await Axios.get(`/api/products/${productId}`);
+    const { data } = await Axios.get(`https://evening-bayou-13792.herokuapp.com/api/products/${productId}`);
     console.log(data)
     dispatch({
         type: CART_ADD_ITEM,
