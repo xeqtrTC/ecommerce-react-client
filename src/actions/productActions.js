@@ -1,5 +1,6 @@
 import {  REVIEW_DELETE_REQUEST, REVIEW_DELETE_SUCCESS, REVIEW_DELETE_FAIL, REVIEW_LIST_REQUEST, REVIEW_LIST_SUCCESS, REVIEW_LIST_FAIL, PRODUCT_REVIEWADD_REQUEST, PRODUCT_REVIEWADD_SUCCESS, PRODUCT_REVIEWADD_FAIL, PRODUCT_REVIEWADD_RESET, PRODUCT_SEARCH_REQUEST, PRODUCT_SEARCH_SUCCESS, PRODUCT_SEARCH_FAIL, PRODUCT_LISTFULL_REQUEST, PRODUCT_LISTFULL_SUCCESS, PRODUCT_LISTFULL_FAIL, CATEGORY_LIST_REQUEST, CATEGORY_LIST_SUCCESS, CATEGORY_LIST_FAIL, CATEGORIES_LIST_REQUEST, CATEGORIES_LIST_SUCCESS, CATEGORIES_LIST_FAIL, PRODUCT_EDIT_REQUEST,  PRODUCT_EDIT_SUCCESS,  PRODUCT_EDIT_FAIL, PRODUCT_DELETE_REQUEST, PRODUCT_DELETE_FAIL, PRODUCT_DELETE_SUCCESS, PRODUCT_CREATE_FAIL, PRODUCT_CREATE_REQUEST, PRODUCT_CREATE_SUCCESS, PRODUCT_DETAILS_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_LIST_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCES, PRODUCT_UPDATE_REQUEST, PRODUCT_UPDATE_SUCCESS, PRODUCT_UPDATE_FAIL, PRODUCT_UPDATE_RESET } from "../constants/productConstants"
-import Axios from 'axios'
+import Axios from 'axios';
+
 export const listProducts = () => async (dispatch) => {
     dispatch({
         type: PRODUCT_LIST_REQUEST
@@ -35,7 +36,6 @@ export const searchProducts = (keyword) => async (dispatch) => {
     }
 }
 
-
 export const detailsProduct = (productId) => async(dispatch) => {
     dispatch({type: PRODUCT_DETAILS_REQUEST, payload: productId})
     try {
@@ -47,6 +47,7 @@ export const detailsProduct = (productId) => async(dispatch) => {
         dispatch({type: PRODUCT_DETAILS_FAIL, payload: error.response && error.response.data.message ? error.response.data.message : error.message})
     }
 } 
+
 export const createProduct = (name, description, countInStock, price, category, brand, image) => async (dispatch, getState) => {
     dispatch({type : PRODUCT_CREATE_REQUEST});
     const { userSignIn: {userInfo},} = getState();
@@ -88,6 +89,7 @@ export const editProduct = (productId) => async(dispatch) => {
         dispatch({type: PRODUCT_EDIT_FAIL, payload: error.response && error.response.data.message ? error.response.data.message : error.message})
     }
 } 
+
 export const updateProduct = (product) => async (dispatch, getState) => {
     dispatch({type : PRODUCT_UPDATE_REQUEST});
     const { userSignIn: {userInfo},} = getState();
