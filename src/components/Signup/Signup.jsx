@@ -83,7 +83,7 @@ export default function SignupScreen() {
                         </div>                        
                         <div className='submit-signup-button'>
                         <button type='submit'>Signup</button>
-                        <Link to='/login'><span>Already registered? Login</span></Link>
+                        <Link to='/signin'><span>Already registered? Login</span></Link>
                         </div>
                     </div>
                     </form>
