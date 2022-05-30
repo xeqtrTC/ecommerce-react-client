@@ -12,9 +12,6 @@ export default function OrderScreen() {
     const Navigate = useNavigate();
     const cart = useSelector((state) => state.cart)
     console.log(cart)
-    if(!cart.paymentMethod) {
-        Navigate('/payment');
-    }
     const {aboutOrder } = cart;
     console.log(aboutOrder);
     const orderCreate = useSelector((state) => state.orderCreate);
