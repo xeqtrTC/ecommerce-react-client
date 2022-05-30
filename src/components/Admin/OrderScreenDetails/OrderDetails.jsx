@@ -76,7 +76,7 @@ useEffect(() => {
                                          <PaymentIcon />
                                          <div className='orderdetails-paymentmethod-info'>
                                              <span  className='orderdetails-info-details'>Order Info</span>
-                                             <p>PaymenthMethod: {order.paymentMethod} </p>
+                                             <p>Payment Method: {order.paymentMethod} </p>
                                              <p>Paid: {order.paid} </p>
                                          </div>
                                      </div>

@@ -40,16 +40,16 @@ export default function CheckoutScreen() {
 
     
     const submitHandler = (e) => {
-            if(canprogress) {
-                    e.preventDefault()
-        dispatch(saveAboutOrder({fullName, cityName, addressName, fullPostal, paymentMethod}))
-       
-        Navigate('/order');
+        if(canprogress) {
+            e.preventDefault()
+            dispatch(saveAboutOrder({fullName, cityName, addressName, fullPostal, paymentMethod}))
+            Navigate('/order');
         } else {
             e.preventDefault();
             toast.error('Fill all fields', ToastObjects)
         }
     }
+    
   return (
       <>
     <Header />
@@ -108,7 +108,7 @@ export default function CheckoutScreen() {
                                               <label htmlFor='paymentMethod'>Paypal</label>
                                           </div>
                                           <div className='payment-visa-img'>
-                                              <img src={'http://assets.stickpng.com/images/580b57fcd9996e24bc43c530.png'} alt='photo' />
+                                              <img src={'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/2560px-PayPal_logo.svg.png'} alt='photo' />
                                           </div>
                                       </div>
                                   </div>
