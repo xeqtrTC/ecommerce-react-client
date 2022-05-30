@@ -52,6 +52,7 @@
     padding: 0.2rem;
     border-radius: 12px;
     height: 5rem;
+    object-fit: cover;
 } 
 .order-min-30 {
     margin-left: 4rem;

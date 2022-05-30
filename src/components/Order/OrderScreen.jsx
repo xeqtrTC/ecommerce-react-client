@@ -15,6 +15,8 @@ export default function OrderScreen() {
     if(!cart.paymentMethod) {
         Navigate('/payment');
     }
+    const {aboutOrder } = cart;
+    console.log(aboutOrder);
     const orderCreate = useSelector((state) => state.orderCreate);
     const { loading, success, error, order } = orderCreate
     console.log(orderCreate)
@@ -41,13 +43,13 @@ export default function OrderScreen() {
                 <div className='order-one'>
                     <div className='order-info'>
                     <h4>Your informations</h4>  
-                     <p>Your name: {cart.shippingAddress.fullName} </p>
-                     <p>Your address: {cart.shippingAddress.addressName}</p>
-                     <p>Your city: {cart.shippingAddress.cityName}</p>
+                     <p>Your name: {aboutOrder.fullName} </p>
+                     <p>Your address: {aboutOrder.addressName}</p>
+                     <p>Your city: {aboutOrder.cityName}</p>
                 </div>
                 <div className='order-method'>
                     <h4>Payment Method</h4>
-                    <p>Your payment method is: {cart.paymentMethod} </p>    
+                    <p>Your payment method is: {aboutOrder.paymentMethod} </p>    
                 </div>
                 </div>
                 <div className='order-two'>

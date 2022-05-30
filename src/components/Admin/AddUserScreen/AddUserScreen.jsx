@@ -40,7 +40,7 @@ export default function AddUserScreen() {
 const submitHandler = (e) => {
   e.preventDefault();
   dispatch(addUser(name, password, email))
-  toast.success('Korisnik dodan', ToastObjects);
+  toast.success('User added', ToastObjects);
 
 }
   return (

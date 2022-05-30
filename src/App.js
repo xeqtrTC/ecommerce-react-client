@@ -45,7 +45,6 @@ function App() {
         <Route path='/signin/' element={<LoginScreen />}></Route>
         <Route path='/signup' element={<SignupScreen />}></Route>
         <Route path='/shipping' element={<CheckoutScreen />}></Route>
-        <Route path='/payment' element={<PaymentScreen />}></Route>
         <Route path='/order' element={<OrderScreen />}></Route>
 
 
