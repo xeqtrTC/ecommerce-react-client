@@ -40,7 +40,7 @@ export default function OrderScreenList() {
   { field: 'Action', type:'actions', headerName: 'Action', width: 150, 
     renderCell: (params) => (
       <>
-        <Link to={`/orderdetails/${params.id}`} params={params}><button className='editButton' >Detalji</button></Link>
+        <Link to={`/orderdetails/${params.id}`} params={params}><button className='editButton' >Details</button></Link>
       </>
 
     )
