@@ -11,7 +11,6 @@ const initialState = {
     cart: {
         cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
         aboutOrder: localStorage.getItem('aboutOrder') ? JSON.parse(localStorage.getItem('shippingAddress')) : {},
-        paymentMethod: 'On hand'
     
     },
 
