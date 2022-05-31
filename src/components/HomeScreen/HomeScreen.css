@@ -429,14 +429,13 @@
   }
   .footer-info-options-first svg {
     position: absolute;
-    margin-top: -5.2rem;
-    margin-left: 12px;    
+    margin-left: 12px;
+    margin-top: -4rem;    
     width: 2rem;
     height: 2rem;
   }
   .footer-info-options-truck-para span {
     font-size: 13px;
-    margin-top: 10px;
   }
   .footer-info-about {
     padding: 0;
