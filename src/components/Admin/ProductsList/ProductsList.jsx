@@ -70,6 +70,8 @@ export default function ProductList(props) {
   useEffect(() => {
     if(successDelete) {
       toast.success('Product has been deleted', ToastObjects)
+      dispatch(listFullProducts())
+
     }else {
       dispatch(listFullProducts())
     }
