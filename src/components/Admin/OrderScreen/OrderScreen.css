@@ -1,10 +1,8 @@
 .order-container {
     height: 100vh;
-    border: 1px solid red;
 
 }
 .order-box {
-    border: 1px solid blue;
     margin-top: 5rem;
     height: 30rem;
 }
