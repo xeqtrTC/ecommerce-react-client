@@ -41,7 +41,6 @@ export default function SearchAllProducts() {
       <Header />
     <div className='search-container'>
         <div className='search-one'>
-        <div  className='product-treding-products-container'>
             {
                 loading ? (
                     <LoadingBox></LoadingBox>
@@ -53,6 +52,8 @@ export default function SearchAllProducts() {
                         {
                             currentPosts.map((product) => {
                                 return (
+                                    <div  className='product-treding-products-container'>
+
                                     <div  key={product.id}className='product-trending-products-info'>
               <                 div   className='product-trending-products-image'>
                                     <img src={product.image} alt='slika' />
@@ -63,6 +64,8 @@ export default function SearchAllProducts() {
                                 <span className='product-trending-price'>&euro;{product.price}</span>
                                 </div>
                             </div>
+                            </div>
+
                                 )
                             })
                         }
@@ -72,7 +75,6 @@ export default function SearchAllProducts() {
                     )
                 )
             }
-        </div>
 
 
 
