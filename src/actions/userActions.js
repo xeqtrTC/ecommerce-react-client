@@ -99,7 +99,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
     const { userSignIn: {userInfo},}  = getState();
 
     try {
-        await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/users/${id}`, {
+        await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/users/userremove/${id}`, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         })
         dispatch({ type: USER_DELETE_SUCCESS})
