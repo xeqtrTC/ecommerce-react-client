@@ -70,10 +70,12 @@ export default function Userlist() {
   useEffect(() => {
     if(successDelete) {
       toast.success('User has been deleted', ToastObjects)
+      dispatch(usersList())
+
     } else {
       dispatch(usersList())
     }
-  }, [dispatch,successDelete])
+  }, [dispatch, successDelete])
 
   return (
     <>

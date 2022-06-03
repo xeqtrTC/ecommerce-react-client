@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Header.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch,  useSelector } from 'react-redux';
 import { signout } from '../../actions/userActions';
 import { categoryList } from '../../actions/productActions'
@@ -88,6 +88,7 @@ export default function HomeScreen() {
                                 <>
                                 <li><Link  onClick={() => setOnClick(false)} to=''>{userInfo.name}</Link></li>
                                 <li onClick={() => setOnClick(false)} ><Link to=''  onClick={signoutHandler}>Logout</Link></li>
+                                <li onClick={() => setOnClick(false)}><Link to='/orderhistory'>Order History</Link></li>
                                 </>
                                 ) : (
                                     <>

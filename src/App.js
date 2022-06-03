@@ -9,6 +9,8 @@ import CartScreen from './components/CartScreen/CartScreen.jsx';
 import { useSelector } from 'react-redux';
 import LoginScreen from './components/Login/Login';
 import SignupScreen from './components/Signup/Signup';
+import OrderHistory from './components/OrderHistory/OrderHistory';
+
 import CheckoutScreen from './components/Checkout/CheckoutScreen';
 import PaymentScreen from './components/Payment/PaymentScreen';
 import OrderScreen from './components/Order/OrderScreen';
@@ -43,6 +45,7 @@ function App() {
         <Route path='/search/query/:keyword' element={<SearchProductsInput />}></Route>
         <Route path='/product/:id' element={<ProductScreen />} exact></Route>
         <Route path='/signin/' element={<LoginScreen />}></Route>
+        <Route path='/orderhistory' element={<OrderHistory />}></Route>
         <Route path='/signup' element={<SignupScreen />}></Route>
         <Route path='/shipping' element={<CheckoutScreen />}></Route>
         <Route path='/order' element={<OrderScreen />}></Route>
