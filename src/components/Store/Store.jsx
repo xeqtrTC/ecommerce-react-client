@@ -3,7 +3,7 @@ import  thunk  from 'redux-thunk';
 import { CartReducer } from '../../reducers/cartReducers';
 import   { reviewDeleteReducer, listReviewReducer, reviewAddReducer, searchReducer, productFullReducer, categoryListReducer, categoriesListReducer, productCreateReducer, productListReducer, productDetailsReducer, productDeleteReducer, productEditReducer, productUpdateReducer }  from '../../reducers/productReducers'
 import { lastTenReducer, userDeleteReducer, userAddReducer, userUpdateReducer, userSigninReducer, userRegisterReducer, usersListReducer, userEditReducer } from '../../reducers/userReducer';
-import { lastTenOrders,orderHistoryReducer,  orderDetailsReducer, orderCreateReducer, orderListReducer } from '../../reducers/orderReducers';
+import { statusOrderReducer, lastTenOrders,orderHistoryReducer,  orderDetailsReducer, orderCreateReducer, orderListReducer } from '../../reducers/orderReducers';
 const initialState = {
     userSignIn: {
         userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null,
@@ -40,6 +40,7 @@ const reducer = combineReducers({
     orderList: orderListReducer,
     orderDetails: orderDetailsReducer,
     orderLastTen: lastTenOrders,
+    orderUpdate: statusOrderReducer,
     orderHistory: orderHistoryReducer,
     categoryList: categoryListReducer,
     categoriesList: categoriesListReducer,

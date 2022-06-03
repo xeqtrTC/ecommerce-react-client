@@ -2,19 +2,21 @@ import React, { useEffect } from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import LoadingBox from '../Loading/LoadingBox';
 import { Link, useParams } from 'react-router-dom'
 import { orderHistory } from '../../actions/orderActions';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 
 import './OrderHistory.css';
+
 export default function OrderHistory() {
     const userSign = useSelector((state) => state.userSignIn)
     const { userInfo } = userSign;
     const dispatch = useDispatch();
     const { name } = userInfo;
 
-    const { error, loading, orders} = useSelector((state) => state.orderHistory)
-  console.log(orders);
+    const { error, loading, order} = useSelector((state) => state.orderHistory)
+  console.log(order);
     const params = useParams();
 
 
@@ -31,26 +33,39 @@ export default function OrderHistory() {
          <Header />
             <div className='cartscreen-container'>
         <div className='cartscreen-left'>
-        
-          
+       
             <span className='yourcart' >Your order history</span>
 
-            
-            <div className='cartscreen-info'>
+            {
+              loading ? (
+                <LoadingBox></LoadingBox>
+              ) : (
+                error ? (
+                  <span>{error}</span>
+                ) : (
+                  order.map((item) => {
+                    return (
+                      <div className='cartscreen-info' key={item.id}>
               <div className='cartscreen-productname'>
-                <img  alt='slika' />
-       <span className='productname'><span>Test</span></span>
+               <Link to={`/product/${item.product}`}> <img src={item.image} alt='slika' /></Link>
+       <span className='productname'><span>{item.name}</span></span>
               </div>
               <div className='cartscreen-qty'>
-              <p>test</p>
+              <p>{item.qty}</p>
               </div>
               <div className='cartscreen-price'>
-                  <span>&euro; 52</span>
+                  <span>&euro; {item.totalPrice}</span>
               </div>
               <div className='cartscreen-delete'>
-                <HighlightOffOutlinedIcon />
+                <input type='text' value={item.status} disabled />
               </div>
             </div>
+                    )
+                  })
+                )
+              )
+            }
+            
 
         
         

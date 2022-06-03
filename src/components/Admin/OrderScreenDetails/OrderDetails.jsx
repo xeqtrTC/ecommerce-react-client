@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { detailsOrder } from '../../../actions/orderActions';
+import { detailsOrder, statusOrder } from '../../../actions/orderActions';
 import Leftside from '../LeftSide/Leftside';
+import { ORDER_STATUS_RESET } from '../../../constants/orderConstants';
 import LoadingBox from '../../Loading/LoadingBox';
 import DateRangeOutlinedIcon from '@mui/icons-material/DateRangeOutlined';
 import PersonIcon from '@mui/icons-material/Person';
@@ -15,15 +16,26 @@ export default function OrderDetails() {
     const params = useParams();
     const { id: orderID} = params;
     const dispatch = useDispatch();
+    const [status, setStatus] = useState('Delivered')
+    const { loading: updateLoading, success} = useSelector((state) => state.orderUpdate)
 
     const { loading, error, orders } = useSelector((state) => state.orderDetails);
 
     console.log(orders);
 
 
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        dispatch(statusOrder({status, orderID}))
+
+    }
+
 useEffect(() => {
+    if(success) {
+        dispatch({type: ORDER_STATUS_RESET })
+    }
     dispatch(detailsOrder(orderID));
-}, [dispatch, orderID])
+}, [dispatch, orderID, success])
 
   return (
     <>
@@ -38,6 +50,7 @@ useEffect(() => {
                                 error ? (
                                     <p>{error}</p>
                                 ) : (
+                                    <form onSubmit={onSubmitHandler}>
                                     <div className='orderdetails-top'>
                             <div className='orderdetails-button'>
                                
@@ -104,7 +117,7 @@ useEffect(() => {
                                          </div>
                                      </div>
                                      <div className='orderdetails-info-product-button'>
-                                         <button>Deliver order</button>
+                                         <button >Deliver order</button>
                                      </div>
                                  </div>
  
@@ -114,6 +127,7 @@ useEffect(() => {
                                 
                             </div>
                         </div>
+                        </form>
                                 )
                             )
                         }

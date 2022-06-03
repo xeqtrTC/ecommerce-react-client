@@ -1,6 +1,6 @@
 import  Axios  from 'axios';
 import { CART_EMPTY } from "../constants/cardConstants";
-import {ORDER_HISTORY_REQUEST , ORDER_HISTORY_SUCCESS, ORDER_HISTORY_FAIL,   ORDER_LASTTEN_SUCCESS, ORDER_LASTTEN_FAIL, ORDER_LASTTEN_REQUEST, ORDER_DETAILS_REQUEST, ORDER_DETAILS_SUCCESS, ORDER_DETAILS_FAIL, ORDER_LIST_REQUEST, ORDER_LIST_SUCCESS, ORDER_LIST_FAIL, ORDER_CREATE_FAIL, ORDER_CREATE_REQUEST, ORDER_CREATE_SUCCESS } from "../constants/orderConstants"
+import { ORDER_STATUS_REQUEST,  ORDER_STATUS_SUCCESS,  ORDER_STATUS_FAIL,  ORDER_STATUS_RESET, ORDER_HISTORY_REQUEST , ORDER_HISTORY_SUCCESS, ORDER_HISTORY_FAIL,   ORDER_LASTTEN_SUCCESS, ORDER_LASTTEN_FAIL, ORDER_LASTTEN_REQUEST, ORDER_DETAILS_REQUEST, ORDER_DETAILS_SUCCESS, ORDER_DETAILS_FAIL, ORDER_LIST_REQUEST, ORDER_LIST_SUCCESS, ORDER_LIST_FAIL, ORDER_CREATE_FAIL, ORDER_CREATE_REQUEST, ORDER_CREATE_SUCCESS } from "../constants/orderConstants"
 
 export const createOrder = (order) => async (dispatch, getState) => {
     dispatch({type: ORDER_CREATE_REQUEST, payload: order})
@@ -20,6 +20,25 @@ export const createOrder = (order) => async (dispatch, getState) => {
     }catch(error) {
         dispatch({type: ORDER_CREATE_FAIL, payload: error.response && error.response.data.message ? error.response.data.message : error.message})
     }
+}
+export const statusOrder = (order) => async (dispatch, getState) => {
+    dispatch({type: ORDER_STATUS_REQUEST})
+    try {
+            const { userSignIn : {userInfo}} = getState()
+
+            const { data } = await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/orders/update/${order.orderID}`, order,  {
+                headers: {
+                    authorization: `Bearer ${userInfo.token}`
+                }
+            })
+            dispatch({type: ORDER_STATUS_SUCCESS, payload: data})
+            dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data})
+
+
+    } catch (error ) {
+            dispatch({type: ORDER_STATUS_FAIL, payload: error.message})
+    }
+
 }
 
 export const orderHistory = (name) => async (dispatch, getState) => {
