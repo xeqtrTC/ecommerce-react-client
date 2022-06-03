@@ -33,8 +33,10 @@ export default function OrderDetails() {
 useEffect(() => {
     if(success) {
         dispatch({type: ORDER_STATUS_RESET })
+    } else {
+        dispatch(detailsOrder(orderID));
+
     }
-    dispatch(detailsOrder(orderID));
 }, [dispatch, orderID, success])
 
   return (
