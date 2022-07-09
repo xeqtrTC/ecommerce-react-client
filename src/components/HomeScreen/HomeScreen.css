@@ -236,6 +236,8 @@
 }
 .footer-info-first-container {
   font-family: 'M PLUS 2', sans-serif;
+  display: flex;
+  justify-content: center;
 
   background-color: #37384E;
   height: 20rem;

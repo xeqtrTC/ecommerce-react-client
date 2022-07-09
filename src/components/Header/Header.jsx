@@ -75,7 +75,7 @@ export default function HomeScreen() {
 
     console.log(clicked)
     useEffect(() => {
-        if(keyword.length > 0) {
+        if(keyword.length > 2) {
             dispatch(searchProducts(keyword))
         }
 
@@ -140,14 +140,14 @@ export default function HomeScreen() {
                       {
                         
                           search && <div className='search-input'>
-                                      <input type='search' placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
+                                      <input type='search' onFocus={() => setClicked(true)} onBlur={() => setKeyword(0)} placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
                                   </div>
                         
                       }
                       
-                      <SearchOutlinedIcon className='border' setClicked={true} ref={user} onClick={() => setSearch(!search)}   />
+                      <SearchOutlinedIcon className='border' ref={user} onClick={() => setSearch(!search)}   />
                       {
-                        keyword && <div className='search-live'>
+                        keyword.length > 2 && <div className='search-live'>
                             {
                                 loading ? (
                                     <div className='loading-header'>

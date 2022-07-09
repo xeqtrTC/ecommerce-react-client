@@ -93,7 +93,6 @@
 .product-screen-review {
     padding: 1rem;
     display: flex;
-    width: 100%;
     justify-content: center;
     margin: 3rem auto;
 
@@ -106,7 +105,7 @@
 }
 
 .product-screen-left {
-    width: 45rem;
+    width: 40rem;
 }
 .product-screen-left-text {
     color: #4a4b65;
@@ -127,8 +126,8 @@
     background-color: #f7f7fc;
     border-radius: 16px;
     height: 25rem;
-    width: 20rem;
-    margin-left: 2rem;
+    width: 21rem;
+    margin-left: 11rem;
     padding: 2rem;
 }
 .product-screen-right span {
