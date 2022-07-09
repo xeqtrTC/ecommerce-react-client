@@ -30,7 +30,8 @@
     font-family: 'M PLUS 2', sans-serif;
   }
   .footer-info-options {
-    
+    display: flex;
+    justify-content: center;
     padding: 4rem;
   }
   .footer-info-options-first {

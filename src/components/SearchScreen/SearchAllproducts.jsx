@@ -35,6 +35,11 @@ export default function SearchAllProducts() {
     useEffect(() => {
         dispatch(listFullProducts())
     }, [dispatch])
+
+    useEffect(() => {
+        document.body.scrollTo(0, 0); 
+
+    }, [])
     
   return (
       <>

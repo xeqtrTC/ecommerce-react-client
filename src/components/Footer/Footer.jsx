@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
@@ -17,11 +18,11 @@ export default function Footer() {
     <div className='footer-info-first-container'>
         <div className='footer-info-first-links'>
           <p className='footer-info-title'>Shop departments</p>
-          <p>Keyboards</p>
-          <p>Headphones</p>
-          <p>Laptops</p>
-          <p>Smartphones</p>
-          <p>Watches</p>
+          <p><Link to={`/search/keyboard`}><span>Keyboards</span></Link></p>
+              <p><Link to={`/search/mouse`}><span>Mouse</span></Link></p>
+              <p><Link to={`/search/headphones`}><span>Headphones</span></Link></p>
+
+          
 
         </div>
         <div className='footer-info-second-links'>

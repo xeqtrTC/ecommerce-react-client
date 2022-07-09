@@ -59,7 +59,9 @@
 .homescreen-product-right {
   display: flex;
   width: 100%;
+  margin-top: 5rem;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
 .homescreen-product-right-name {
@@ -154,6 +156,7 @@
   width: 80%;
   margin: 0 auto 2rem auto;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .product-treding-products-container {
@@ -238,6 +241,10 @@
   height: 20rem;
   padding: 4rem 4rem;
   display: flex
+}
+.footer-info-container a {
+  color: #C3C4CA;
+  text-decoration: none;
 }
 .footer-info-first-links  {
   color: #C3C4CA;

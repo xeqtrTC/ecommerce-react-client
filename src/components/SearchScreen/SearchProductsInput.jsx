@@ -24,7 +24,10 @@ export default function SearchProductsInput({match}) {
         dispatch(searchProducts(keyword))
     }, [dispatch, keyword])
 
-   
+    useEffect(() => {
+        document.body.scrollTo(0, 0); 
+
+    }, [])
     
   return (
       <>
@@ -55,6 +58,8 @@ export default function SearchProductsInput({match}) {
                             </div>
                         </div>
                                 )
+
+                                
                             })
                         }
                         
@@ -65,7 +70,6 @@ export default function SearchProductsInput({match}) {
 
         </div>
     </div>
-    <Footer />
     </>
   )
 }

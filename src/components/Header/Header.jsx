@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import './Header.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { categoryList, searchProducts } from '../../actions/productActions';
 import { useDispatch,  useSelector } from 'react-redux';
 import { signout } from '../../actions/userActions';
-import { categoryList } from '../../actions/productActions'
 import LoadingBox from '../Loading/LoadingBox';
 import LaptopIcon from '@mui/icons-material/Laptop';
 
@@ -21,9 +21,12 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 
 export default function HomeScreen() {
+    const user = useRef();
     const Navigate = useNavigate();
     const [keyword, setKeyword] = useState('');
+    const [clicked, setClicked] = useState(false);
     const [button, setButton] = useState(true);
+    const dispatch = useDispatch();
 
     const [click, setOnClick] = useState(false);
     const showButton = () => {
@@ -37,25 +40,46 @@ export default function HomeScreen() {
     const cart = useSelector((state) => state.cart);
     const  {cartItems}  = cart;
     const categoryList = useSelector((state) => state.categoryList)
-    const { loading: loadingCategory, error: errorCategory, category} = categoryList
+    const searchList = useSelector((state) => state.search);
+
+    // const { loading: loadingCategory, error: errorCategory, category} = categoryList
+    const { loading, error, keyword: keywordList } = searchList
+      console.log(keywordList)
 
     const [search, setSearch] = useState(false);
     const userSign = useSelector((state) => state.userSignIn)
     const  {userInfo} = userSign
+
+    const test = [<div className='search-flex'>
+    {
+      keywordList?.map((search) => {
+          return (
+              <p>{search.name}</p>
+          )
+      })
+    }
+</div>]
     console.log(userInfo);
-    const dispatch = useDispatch();
     const signoutHandler = () => {
         dispatch(signout())
     }
     console.log(userInfo)
-    const submitHandler = (e) => {
-        e.preventDefault();
-        if(keyword.trim()) {
-            Navigate(`/search/query/${keyword}`)
-        } else {
-            Navigate('/')
+    // const submitHandler = (e) => {
+    //     e.preventDefault();
+    //     if(keyword.trim()) {
+    //         Navigate(`/search/query/${keyword}`)
+    //     } else {
+    //         Navigate('/')
+    //     }
+    // }
+
+    console.log(clicked)
+    useEffect(() => {
+        if(keyword.length > 0) {
+            dispatch(searchProducts(keyword))
         }
-    }
+
+    }, [dispatch, keyword])
     useEffect(() => {
         showButton();
     }, [])
@@ -113,16 +137,44 @@ export default function HomeScreen() {
               </div>
               <div className='bottom-header-rest'>
                   <div className='bottom-header-img'>
-                  <form onSubmit={submitHandler}>
                       {
                         
                           search && <div className='search-input'>
-                          <input type='search' placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
-                        </div>
+                                      <input type='search' placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
+                                  </div>
                         
                       }
-                      </form>
-                      <SearchOutlinedIcon className='border' onClick={() => setSearch(!search)} />
+                      
+                      <SearchOutlinedIcon className='border' setClicked={true} ref={user} onClick={() => setSearch(!search)}   />
+                      {
+                        keyword && <div className='search-live'>
+                            {
+                                loading ? (
+                                    <div className='loading-header'>
+                                        <div className='loading-frame-over-header'></div>
+                                    </div>
+                                ) : (
+                                    <div className='search-div'>
+                                        {
+                                            keywordList.map((item) => {
+                                                return (
+                                                    <div className='search-div-container' key={item.id} >
+                                                        <div className='search-div-image'>
+                                                            <img src={item.image} alt='photo' />
+                                                        </div>
+                                                        <div className='search-div-name'>
+                                                            <Link to={`/product/${item.id}`}><p>{item.name}</p></Link>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            }
+                        </div>
+                      }
+                      
                       <Link to='/cart'><ShoppingCartOutlinedIcon /></Link>
                           {cartItems.length > 0 && (
                               <div className='bottom-header-length'>
@@ -139,7 +191,7 @@ export default function HomeScreen() {
                         }
                         </div>
                           
-                      
+                        
                   </div>
               </div>
           </div>

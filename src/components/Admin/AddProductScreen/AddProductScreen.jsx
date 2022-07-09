@@ -24,18 +24,27 @@ export default function AddProductScreen() {
     const [countInStock, setCountInStock] = useState('');
     const [category, setCategory] = useState('');
     const [image, setImage] = useState('');
+    const [imageName, setImageName] = useState("");
 
     const [brand, setBrand] = useState('')
 
+    const saveFile = (e) => {
+        setImage(e.target.files[0]);
+        setImageName(e.target.files[0].name);
+      };
+
     const userSignIn = useSelector((state) => state.userSignIn);
     const {userInfo } = userSignIn;
+
+    
     const uploadfileHandler = async (e) => {
         const file = e.target.files[0];
         const bodyFormData = new FormData();
         bodyFormData.append('image', file);
+        
         setLoadingUpload(true);
          try {
-            const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/api/uploads/', bodyFormData, {
+            const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/upload/', bodyFormData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${userInfo.token}`
