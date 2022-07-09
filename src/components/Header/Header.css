@@ -54,6 +54,9 @@
     align-items: center;
     height: 4.5rem;
 }
+.bottom-header-rest {
+    width: 28%;
+}
 
 .bottom-header-links img {
     width: 4rem;
@@ -105,6 +108,7 @@
 }
 .bottom-header-img {
     display: flex;
+    width: 100%;
     margin-right: 2rem;
 }
 .bottom-header-length span {
@@ -124,7 +128,9 @@
     border-radius: 50%;
 }
 .search-input {
+    width: 100%;
     display: flex;
+    margin-right: 1rem;
     align-items: center;
 }
 .mobileicon {
@@ -142,9 +148,9 @@
 
 .search-live {
     padding: 0.5rem;
-    width: 17%;
+    width: 13.5%;
 
-    margin-top: 3.4rem;
+    margin-top: 2.5rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #fff;
