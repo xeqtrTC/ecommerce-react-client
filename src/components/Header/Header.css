@@ -49,10 +49,15 @@
     display: flex;
 
 }
-.bottom-header-links, .bottom-header-rest {
+.bottom-header-links {
     display: flex;
     align-items: center;
     height: 4.5rem;
+}
+.bottom-header-rest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .bottom-header-rest {
     width: 28%;
@@ -108,6 +113,7 @@
 }
 .bottom-header-img {
     display: flex;
+    justify-content: flex-end;
     width: 100%;
     margin-right: 2rem;
 }
@@ -149,7 +155,7 @@
 .search-live {
     padding: 0.5rem;
     width: 13.5%;
-
+    margin-right: 6.5%;
     margin-top: 2.5rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
