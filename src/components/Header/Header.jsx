@@ -179,7 +179,7 @@ export default function HomeScreen() {
                                                 return (
                                                     <div className='search-div-container' key={item.id} >
                                                         <div className='search-div-image'>
-                                                            <img src={item.image} alt='photo' />
+                                                            <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${item.image}`} alt='photo' />
                                                         </div>
                                                         <div className='search-div-name'>
                                                             <Link to={`/product/${item.id}`}><p>{item.name}</p></Link>
