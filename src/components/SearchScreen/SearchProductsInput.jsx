@@ -48,7 +48,7 @@ export default function SearchProductsInput({match}) {
                                     <div  className='product-treding-products-container' key={product.id}>
                                     <div  className='product-trending-products-info'>
               <                 div   className='product-trending-products-image'>
-                                    <img src={product.image} alt='slika' />
+                                    <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${product.image}`} alt='slika' />
                                 </div>
                             <div className='product-trending-products-text'>
                                 <span className='product-trending-category'>{product.category}</span>
