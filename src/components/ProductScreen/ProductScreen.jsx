@@ -79,7 +79,7 @@ export default function ProductScreen() {
 
             <span className='product-screen-p-h1'>{product[0].name}</span>
             <div className='product-screen-image-real'>
-              <img src={product[0].image} alt='slika' />
+              <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${product[0].image}`} alt='slika' />
             </div>
           </div>
           <div className='product-screen-addtocart'>

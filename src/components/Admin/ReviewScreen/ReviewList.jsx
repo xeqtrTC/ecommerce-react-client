@@ -63,10 +63,11 @@ export default function ReviewListScreen(props) {
   useEffect(() => {
     if(successDelete) {
       toast.success('Review has been deleted', ToastObjects)
+
     }else {
       dispatch(listOfReview())
     }
-}, [dispatch, successDelete])
+}, [dispatch, reviewDelete, successDelete])
   return (
     <>
         <div className='container'>

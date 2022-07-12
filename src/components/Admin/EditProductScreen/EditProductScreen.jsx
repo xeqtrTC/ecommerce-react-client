@@ -113,7 +113,7 @@ const submitHandler = (e) => {
                             <div className='editproduct-details'>
                                 
                                 <div className='editproduct-image'>
-                                    <img src={image} alt='slika' />
+                                    <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${image}`} alt='slika' />
                                     <span>{name}</span>
                                 </div>
                                 <div className='editproduct-product'>
@@ -164,7 +164,7 @@ const submitHandler = (e) => {
                                 <div className='editproduct-update-image'>
                                     <div className='edit-img'>
                                     
-                                    <img src={image}  alt='slika'/>
+                                    <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${image}`}  alt='slika'/>
                                     <label for='file'>
                                        <UploadIcon />
                                     </label>

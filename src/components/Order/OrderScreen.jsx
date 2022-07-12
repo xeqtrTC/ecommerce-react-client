@@ -59,7 +59,7 @@ export default function OrderScreen() {
                     <li key={item.product}>
                       <div className='order-row-bottom'>
                         <div>
-                          <img src={item.image} alt='Slika' className='small' />
+                          <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${item.image}`} alt='Slika' className='small' />
                         </div>
                         <div className='order-min-30'>
                           <Link to={`/product/${item.product}`}>{item.name}</Link>

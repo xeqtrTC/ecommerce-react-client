@@ -47,7 +47,7 @@ export default function OrderHistory() {
                     return (
                       <div className='cartscreen-info' key={item.id}>
               <div className='cartscreen-productname'>
-               <Link to={`/product/${item.product}`}> <img src={item.image} alt='slika' /></Link>
+               <Link to={`/product/${item.product}`}> <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${item.image}`} alt='slika' /></Link>
        <span className='productname'><span>{item.name}</span></span>
               </div>
               <div className='cartscreen-qty'>

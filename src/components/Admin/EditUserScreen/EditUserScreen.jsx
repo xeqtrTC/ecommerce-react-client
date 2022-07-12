@@ -48,7 +48,10 @@ export default function EditUserScreen() {
 useEffect(() => {
     if(successUpdate) {
         dispatch({ type: USER_UPDATE_RESET})
+        dispatch(editUser(id))
+
         toast.success('User has been updated', ToastObjects)
+
     } else if(!user){
         dispatch(editUser(id))
     } else {
@@ -59,8 +62,7 @@ useEffect(() => {
         setDate(user[0].date)
     
     }
-}, [dispatch, user,successUpdate,  id])
-
+}, [dispatch, successUpdate, user,  id])
 const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUser({ id, name, email, password, isAdmin}))

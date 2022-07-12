@@ -69,7 +69,7 @@ export default function CartScreen(props) {
             
             <div className='cartscreen-info'>
               <div className='cartscreen-productname'>
-                <img src={item.image} alt='slika' />
+                <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${item.image}`} alt='slika' />
                 <Link to={`/product/${item.product}`}><span className='productname'>{item.name}</span></Link>
               </div>
               <div className='cartscreen-qty'>

@@ -110,7 +110,7 @@ useEffect(() => {
                                          </div>
                                          <div className='orderdetails-info-body'>
                                              <ul>
-                                                <li className='orderdetails-info-body-img'><Link to={`/product/${order.product}`}><img src={order.image}   alt='picture' /></Link></li>
+                                                <li className='orderdetails-info-body-img'><Link to={`/product/${order.product}`}><img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${order.image}`}   alt='picture' /></Link></li>
                                                  <li className='orderdetails-name-body'> {order.name}</li>
                                                  <li className='price'>{order.itemsPrice}</li>
                                                  <li className='price'>{order.qty}</li>

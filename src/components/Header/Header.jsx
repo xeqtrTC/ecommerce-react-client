@@ -26,6 +26,7 @@ export default function HomeScreen() {
     const [keyword, setKeyword] = useState('');
     const [clicked, setClicked] = useState(false);
     const [button, setButton] = useState(true);
+    const [ show, setshow] = useState(false);
     const dispatch = useDispatch();
 
     const [click, setOnClick] = useState(false);
@@ -38,42 +39,54 @@ export default function HomeScreen() {
       };
     
     const cart = useSelector((state) => state.cart);
+
     const  {cartItems}  = cart;
     const categoryList = useSelector((state) => state.categoryList)
     const searchList = useSelector((state) => state.search);
-
-    // const { loading: loadingCategory, error: errorCategory, category} = categoryList
     const { loading, error, keyword: keywordList } = searchList
+
+    const asdf = () => {
+        if(keyword.length  > 2 && clicked === true) {
+            setshow(true);
+        } else  {
+            setshow(false);
+        }
+        
+    }
+    const asfff = () => {
+        if(clicked !== false && keywordList.length > 0 ) {
+            setshow(true);
+        } else {
+            setshow(false);
+        }
+    }
+    // const { loading: loadingCategory, error: errorCategory, category} = categoryList
       console.log(keywordList)
 
     const [search, setSearch] = useState(false);
     const userSign = useSelector((state) => state.userSignIn)
     const  {userInfo} = userSign
 
-    const test = [<div className='search-flex'>
-    {
-      keywordList?.map((search) => {
-          return (
-              <p>{search.name}</p>
-          )
-      })
-    }
-</div>]
+   
     console.log(userInfo);
     const signoutHandler = () => {
         dispatch(signout())
     }
     console.log(userInfo)
-    // const submitHandler = (e) => {
-    //     e.preventDefault();
-    //     if(keyword.trim()) {
-    //         Navigate(`/search/query/${keyword}`)
-    //     } else {
-    //         Navigate('/')
-    //     }
-    // }
-
+    const submitHandler = (e) => {
+        e.preventDefault();
+        if(keyword.trim()) {
+            Navigate(`/search/query/${keyword}`)
+        } else {
+            Navigate('/')
+        }
+    }
+    
+    useEffect(() => {
+        asdf()
+    }, [keyword, clicked])
     console.log(clicked)
+  
     useEffect(() => {
         if(keyword.length > 2) {
             dispatch(searchProducts(keyword))
@@ -137,17 +150,23 @@ export default function HomeScreen() {
               </div>
               <div className='bottom-header-rest'>
                   <div className='bottom-header-img'>
+                  <form onSubmit={submitHandler}>
+
                       {
                         
                           search && <div className='search-input'>
-                                      <input type='search' onFocus={() => setClicked(true)} onBlur={() => setKeyword(0)} placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
+                                      <input type='search' onFocus={() => setClicked(true)} onClick={() => asdf()} onBlur={() => asfff()}  placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
+                                    <button className='search-button'>Search</button>
                                   </div>
                         
                       }
-                      
-                      <SearchOutlinedIcon className='border' ref={user} onClick={() => setSearch(!search)}   />
+                      </form>
+                      { 
+                        search ? <CloseIcon className='border'  onClick={() => setSearch(false)} /> : <SearchOutlinedIcon className='border' ref={user} onClick={() => setSearch(!search)}/> 
+
+                      }
                       {
-                        keyword.length > 2 && <div className='search-live'>
+                         show && search && <div className='search-live'>
                             {
                                 loading ? (
                                     <div className='loading-header'>

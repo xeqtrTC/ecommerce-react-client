@@ -25,8 +25,52 @@ export default function AddProductScreen() {
     const [category, setCategory] = useState('');
     const [image, setImage] = useState('');
     const [imageName, setImageName] = useState("");
-
     const [brand, setBrand] = useState('')
+
+
+    const [fileInputState, setFileInputState] = useState('');
+    const [selectedFile, setSelectedFile] = useState();
+    console.log(image)
+  
+   console.log(selectedFile);
+
+    const uploadImage = async (e, base64EncodedImage) => {
+        const fileImage = e.target.files[0];
+        console.log('aesaeaseas')
+        console.log(fileImage);
+        setSelectedFile(fileImage);
+        setFileInputState(e.target.value);
+        console.log(fileInputState)
+        const reader = new FileReader();
+
+        reader.readAsDataURL(fileImage);
+        reader.onloadend = () => {
+            setImage(reader.result);
+        }
+        reader.onerror = () => {
+            console.error('errorrr')
+        }
+        console.log(reader);
+        try {
+            await Axios.post('https://evening-bayou-13792.herokuapp.com/upload/',  {data: image} , {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${userInfo.token}`
+                }
+            })
+           setFileInputState('');
+           setImage('');
+
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+
+
+
+
+
 
     const saveFile = (e) => {
         setImage(e.target.files[0]);
@@ -42,6 +86,8 @@ export default function AddProductScreen() {
         const bodyFormData = new FormData();
         bodyFormData.append('image', file);
         
+        bodyFormData.append('name', file.name);
+
         setLoadingUpload(true);
          try {
             const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/upload/', bodyFormData, {
@@ -50,9 +96,10 @@ export default function AddProductScreen() {
                     Authorization: `Bearer ${userInfo.token}`
                 }
             })
-            console.log(data);
-            console.log(data);
-            setImage(data);
+            
+            const { public_id } = data;
+            setImageName(public_id);
+            console.log(public_id);
             setLoadingUpload(false);
          } catch (error) {
             setErrorUpload(error.message);
@@ -84,14 +131,15 @@ export default function AddProductScreen() {
         setDescription('');
         setPrice('');
         setCountInStock('');
-        setImage('');
+        setImageName('');
         setCategory('');
         setBrand('');
         }
     }, [createdProduct, dispatch, successCreate])
     const handleSubmit = (e) => {
+        console.log(imageName)
         e.preventDefault();
-        dispatch(createProduct(name, description, countInStock, price, category, brand, image ));
+        dispatch(createProduct(name, description, countInStock, price, category, brand, imageName ));
         toast.success('Product has been added', ToastObjects);
 
     }
@@ -110,7 +158,7 @@ export default function AddProductScreen() {
 
               <div className='addproduct-add-details'>
                   <label>Image</label>
-                  <input name='image' type='file' id='imageFile' onChange={uploadfileHandler} />
+                  <input name='image' type='file' id='imageFile' value={fileInputState} onChange={uploadfileHandler} />
                 { loadingUpload && <LoadingBox></LoadingBox>}
                 {errorUpload && (
                     <p>{errorUpload}</p>
