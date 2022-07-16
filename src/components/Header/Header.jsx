@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import './Header.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { categoryList, searchProducts } from '../../actions/productActions';
+import { categoryList, searchProducts, listFullProducts } from '../../actions/productActions';
 import { useDispatch,  useSelector } from 'react-redux';
 import { signout } from '../../actions/userActions';
 import LoadingBox from '../Loading/LoadingBox';
@@ -20,16 +20,20 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function HomeScreen() {
+export default function Header() {
     const user = useRef();
     const Navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [keyword, setKeyword] = useState('');
     const [clicked, setClicked] = useState(false);
     const [button, setButton] = useState(true);
     const [ show, setshow] = useState(false);
-    const dispatch = useDispatch();
-
+    const [onclickedlink, setonclickedlink] = useState(false);
+    const [search, setSearch] = useState(false);
     const [click, setOnClick] = useState(false);
+    console.log(onclickedlink);
+
     const showButton = () => {
         if (window.innerWidth <= 960) {
           setButton(false);
@@ -39,40 +43,19 @@ export default function HomeScreen() {
       };
     
     const cart = useSelector((state) => state.cart);
-
-    const  {cartItems}  = cart;
-    const categoryList = useSelector((state) => state.categoryList)
+    // const categoryList = useSelector((state) => state.categoryList)
     const searchList = useSelector((state) => state.search);
-    const { loading, error, keyword: keywordList } = searchList
-
-    const asdf = () => {
-        if(keyword.length  > 2 && clicked === true) {
-            setshow(true);
-        } else  {
-            setshow(false);
-        }
-        
-    }
-    const asfff = () => {
-        if(clicked !== false && keywordList.length > 0 ) {
-            setshow(true);
-        } else {
-            setshow(false);
-        }
-    }
-    // const { loading: loadingCategory, error: errorCategory, category} = categoryList
-      console.log(keywordList)
-
-    const [search, setSearch] = useState(false);
+    const productList = useSelector((state) => state.productListFull)
     const userSign = useSelector((state) => state.userSignIn)
+
+    const { loading, error, keyword: keywordList } = searchList
+    const  {cartItems}  = cart;
+    const { error: productError, loading: loadingError, products } = productList;
     const  {userInfo} = userSign
 
-   
-    console.log(userInfo);
     const signoutHandler = () => {
         dispatch(signout())
     }
-    console.log(userInfo)
     const submitHandler = (e) => {
         e.preventDefault();
         if(keyword.trim()) {
@@ -81,18 +64,37 @@ export default function HomeScreen() {
             Navigate('/')
         }
     }
+
+    const closeSearchandSetshowfalse = () => {
+        setSearch(false);
+        setKeyword('');
+    }
+
     
-    useEffect(() => {
-        asdf()
-    }, [keyword, clicked])
-    console.log(clicked)
+
+      
+
+    // const [items, setItems] = useState({})
+    // const filterItems = (e) => {
+    //     const filterProducts = products?.filter((item) => {
+    //         return item.name.toLowerCase().includes(keyword.toLowerCase()); // Made live search by filtering all products by keyword value.
+    //     })
+    //     setItems(filterProducts)
+    // }
+    // useEffect(() => {
+    //         filterItems();
+    // }, [keyword])
+    // useEffect(() => {
+    //     dispatch(listFullProducts())
+    // }, [dispatch])
   
+
     useEffect(() => {
         if(keyword.length > 2) {
             dispatch(searchProducts(keyword))
         }
+    }, [keyword, dispatch])
 
-    }, [dispatch, keyword])
     useEffect(() => {
         showButton();
     }, [])
@@ -155,40 +157,44 @@ export default function HomeScreen() {
                       {
                         
                           search && <div className='search-input'>
-                                      <input type='search' onFocus={() => setClicked(true)} onClick={() => asdf()} onBlur={() => asfff()}  placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
+                                      <input type='search' ref={user} onFocus={() => setClicked(true)} onBlur={() => setClicked(false)} placeholder='Search' onChange={(e) => setKeyword(e.target.value)} />
                                     <button className='search-button'>Search</button>
                                   </div>
                         
                       }
                       </form>
                       { 
-                        search ? <CloseIcon className='border'  onClick={() => setSearch(false)} /> : <SearchOutlinedIcon className='border' ref={user} onClick={() => setSearch(!search)}/> 
+                        search ? <CloseIcon className='border'  onClick={closeSearchandSetshowfalse} /> : <SearchOutlinedIcon className='border' onClick={() => setSearch(!search)}/> 
 
                       }
                       {
-                         show && search && <div className='search-live'>
+                         keyword.length > 2 &&   <div className='search-live'>
                             {
                                 loading ? (
                                     <div className='loading-header'>
                                         <div className='loading-frame-over-header'></div>
                                     </div>
                                 ) : (
-                                    <div className='search-div'>
+                                    keywordList.length === 0  ? (
+                                        <p>No products found</p>
+                                    ) : (
+                                        <div  className='search-div'>
                                         {
-                                            keywordList.map((item) => {
+                                            keywordList?.map((item) => {
                                                 return (
                                                     <div className='search-div-container' key={item.id} >
                                                         <div className='search-div-image'>
                                                             <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${item.image}`} alt='photo' />
                                                         </div>
                                                         <div className='search-div-name'>
-                                                            <Link to={`/product/${item.id}`}><p>{item.name}</p></Link>
+                                                            <Link  to={`/product/${item.id}`} ><p onClick={() => setonclickedlink(true)}>{item.name}</p></Link>
                                                         </div>
                                                     </div>
                                                 )
                                             })
                                         }
                                     </div>
+                                    )
                                 )
                             }
                         </div>

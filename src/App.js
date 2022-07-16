@@ -30,6 +30,8 @@ import OrderDetails from './components/Admin/OrderScreenDetails/OrderDetails';
 import CategoriesScreen from './components/Admin/CategoriesScreen/CategoriesScreen';
 import ReviewListScreen from './components/Admin/ReviewScreen/ReviewList';
 import SearchProductsInput from './components/SearchScreen/SearchProductsInput';
+import {AboutUs, BrandPolicy, ContactUs, CookiePolicy, CopyrightPolicy, DeliveryInfo, News, OrderTracking, PrivacyPolicy, RefundsReplacements, Shippingrates, Support, TaxesFees} from './components/FooterInfo/Shippingrates';
+import ErrorPage from './components/404/ErrorPage';
 
 function App() {
 
@@ -48,8 +50,24 @@ function App() {
         <Route path='/orderhistory' element={<OrderHistory />}></Route>
         <Route path='/signup' element={<SignupScreen />}></Route>
         <Route path='/shipping' element={<CheckoutScreen />}></Route>
-        <Route path='/order' element={<OrderScreen />}></Route>
+        <Route path='/shippingrates' element={<Shippingrates />} />
+        <Route path='/refunds' element={<RefundsReplacements />} />
+        <Route path='/ordertracking' element={<OrderTracking />} />
+        <Route path='/deliveryinfo' element={<DeliveryInfo />} />
+        <Route path='/taxesfees' element={<TaxesFees />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+        <Route path='/cookiepolicy' element={<CookiePolicy />} />
+        <Route path='/copyrightpolicy' element={<CopyrightPolicy />} />
+        <Route path='/brandpolicy' element={<BrandPolicy />} />
+        <Route path='/aboutus' element={<AboutUs />} />
+        <Route path='/support' element={<Support />} />
+        <Route path='/contactus' element={<ContactUs />} />
 
+
+
+        <Route path='/order' element={<OrderScreen />}></Route>
+        <Route path='/*' element={<ErrorPage />} />
 
 
         <Route path='/admin' element={<AdminRoute><Admin /></AdminRoute>} />

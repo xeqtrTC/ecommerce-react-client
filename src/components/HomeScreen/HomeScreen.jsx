@@ -25,14 +25,74 @@ import { listProducts } from '../../actions/productActions';
 import Slider from './Slider';
 
 export default function HomeScreen({ slides }) {
+
+
+  const [firstItem, setFirstItem] = useState(true);
+  const [firstItemFocus, setFirstItemFocus] = useState(true);
+
+  const [secondItem, setSecondItem] = useState(false);
+  const [secondItemFocus, setSecondItemFocus] = useState(false);
+  
+  const [thirdItem, setThirdItem] = useState(false);
+  const [thirdItemFocus, setThirdItemFocus] = useState(false);
+
+  
+  const showFirstItem = () => {
+    setFirstItem(true);
+    setFirstItemFocus(true);
+    setSecondItem(false);
+    setSecondItemFocus(false);
+    setThirdItem(false);
+    setThirdItemFocus(false);
+  }
+
+  const showSecondItem = () => {
+    setSecondItem(true);
+    setSecondItemFocus(true);
+    setFirstItem(false);
+    setFirstItemFocus(false);
+    setThirdItem(false);
+    setThirdItemFocus(false);
+  }
+
+  const showThirdItem = () => {
+    setThirdItem(true);
+    setThirdItemFocus(true);
+    setFirstItem(false);
+    setFirstItemFocus(false);
+    setSecondItem(false);
+    setSecondItemFocus(false);
+   
+  }
+
+
+
+
+
     const dispatch = useDispatch();
   const productList = useSelector( (state) => state.productList);
   const { loading, error, products } = productList
   console.log(products);
 
+  const productsSliced = products?.slice(2,5);
+  console.log(productsSliced);
+
   const [current, setCurrent] = useState(0);
     const length = sliderData.length;
+    const [currentItem, setCurrentItem] = useState();
+    const [currentItemFocus, setCurrentItemFocus] = useState()
+  useEffect(() => {
+    setCurrentItem(productsSliced)
+    setCurrentItemFocus(productsSliced);
+  }, [products])
 
+  const setIndexShow = (id) => {
+    const filterItems = productsSliced.filter((item) => item.id === id)
+    setCurrentItem(filterItems)
+    setCurrentItemFocus(filterItems)
+  }
+  console.log('CURRENT ITEM', currentItem);
+  console.log('CURRENT FOCUS', currentItemFocus);  
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)
     }
@@ -44,6 +104,7 @@ export default function HomeScreen({ slides }) {
 
     useEffect(() => {
         dispatch(listProducts())
+
     }, [dispatch])
   return (
     <>
@@ -51,45 +112,71 @@ export default function HomeScreen({ slides }) {
         <div className='homescreen-container'>
           <div className='homescreen-top'>
               <div className='homescreen-product'>
-                  {/* 
-                   LEVO OD TEKSTA, NAPRAVITI NA KLIL DA SE MENJA KONTEKT, BEZ VREMENA TRENUTNO.
+                  
+                   {/* LEVO OD TEKSTA, NAPRAVITI NA KLIL DA SE MENJA KONTEKT, BEZ VREMENA TRENUTNO.
                    MAKNUTI iz .homescreen-product ALIGN-ITEMS: CENTER;
-                   MAKNUTI WIDTH: 100% IZ .homescreen-product-right;
+                   MAKNUTI WIDTH: 100% IZ .homescreen-product-right; */}
                   <div className='homescreen-product-left'>
-                      <div id='test' className='homescreen-product-left-item'>
-                        <img src='../../../images/1649971918135.jpg' alt='slika' />                     
-                        <div className='homescreen-product-left-item-product'>
-                            <p id='test'>Razer Kraken V3</p>
-                            <p id='test'>Gaming headphones</p>
-                        </div>
-                        <ArrowForwardIosOutlinedIcon />
-                      </div>
-                      <div className='homescreen-product-left-item'>
-                        <img src='../../../images/1649971918135.jpg' alt='slika' />                     
-                        <div className='homescreen-product-left-item-product'>
-                            <p id='test'>Razer Kraken V3</p>
-                            <p id='test'>Gaming headphones</p>
-                        </div>
-                        <ArrowForwardIosOutlinedIcon />
-                      </div>
-                      <div className='homescreen-product-left-item'>
-                        <img src='../../../images/1649971918135.jpg' alt='slika' />                     
-                        <div className='homescreen-product-left-item-product'>
-                            <p id='test'>Razer Kraken V3</p>
-                            <p id='test'>Gaming headphones</p>
-                        </div>
-                        <ArrowForwardIosOutlinedIcon />
-                      </div>
-                  </div> */}
+                      {
+                        productsSliced?.map((productSlice) => {
+                          return (
+                            <div onClick={() => setIndexShow(productSlice.id)} id='test' className='homescreen-product-left-item' key={productSlice.id}>
+                            <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${productSlice.image}`} alt='slika' />                     
+                          <div className='homescreen-product-left-item-product'>
+                            <p id='test'>{productSlice.name}</p>
+                            <p id='test'>{productSlice.category}</p>
+                          </div>
+                          <ArrowForwardIosOutlinedIcon />
+                          </div>
+                          )
+                        })
+                      }
+                      
+                  </div> 
                   <div className='homescreen-product-right'>
-                      <div className='homescreen-product-right-name'>
-                        <p>Razer Kraken V3</p>
-                        <p>Gaming headphones</p>
-                        <button className='homescreen-product-button'>Get it Now = $125</button>
-                      </div>
-                      <div className='homescreen-product-right-img'>
-                        <img className='img-home' src='../../../images/1649971918135.jpg' alt='slika' />
-                      </div>
+                    {
+                      loading ? (
+                        <LoadingBox />
+                        
+                      ) : (
+                        currentItem && (
+                          <>
+                          <div className='homescreen-product-right-name'>
+                            <p>{currentItem[0].name}</p>
+                            <p>{currentItem[0].category}</p>
+                            <Link to={`/product/${currentItem[0].id}`}><button className='homescreen-product-button'>Get it Now = &euro;{currentItem[0].price}</button></Link>
+                          </div><div className='homescreen-product-right-img'>
+                              <img className='img-home' src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${currentItem[0].image}`} alt='slika' />
+                            </div>
+                          </>
+                        )
+                      )
+                    }
+                     {/* {
+                        currentItem.length < 0 ? (
+                            <>
+                            <div className='homescreen-product-right-name'>
+                              <p>{productsSliced[0].name}</p>
+                              <p>{productsSliced[0].category}</p>
+                              <button className='homescreen-product-button'>Get it Now = &euro;{productsSliced[0].price}</button>
+                            </div><div className='homescreen-product-right-img'>
+                                <img className='img-home' src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${productsSliced[0].image}`} alt='slika' />
+                              </div>
+                             </>
+                        ) : (
+                          currentItem.length > 0 && (
+                            <>
+                            <div className='homescreen-product-right-name'>
+                              <p>{currentItem[0].name}</p>
+                              <p>{currentItem[0].category}</p>
+                              <button className='homescreen-product-button'>Get it Now = &euro;{currentItem[0].price}</button>
+                            </div><div className='homescreen-product-right-img'>
+                                <img className='img-home' src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${currentItem[0].image}`} alt='slika' />
+                              </div>
+                            </>
+                          )
+                        )
+                     } */}
                   </div>
               </div>
           </div>
@@ -160,101 +247,101 @@ export default function HomeScreen({ slides }) {
       </div>
         </div>
 
-      <div className='footer-info-container'>
-        <div className='footer-info-first-container'>
-            <div className='footer-info-first-links'>
-              <p className='footer-info-title'>Shop departments</p>
-              <p><Link to={`/search/keyboard`}><span>Keyboards</span></Link></p>
+        <div className='footer-info-container'>
+    <div className='footer-info-first-container'>
+        <div className='footer-info-first-links'>
+          <p className='footer-info-title'>Shop departments</p>
+          <p><Link to={`/search/keyboard`}><span>Keyboards</span></Link></p>
               <p><Link to={`/search/mouse`}><span>Mouse</span></Link></p>
               <p><Link to={`/search/headphones`}><span>Headphones</span></Link></p>
 
-            </div>
-            <div className='footer-info-second-links'>
-                <p className='footer-info-title'>Customer zone</p>
-                <p>Shipping rates & policies</p>
-                <p>Refunds & replacements</p>
-                <p>Order tracking</p>
-                <p>Delivery info</p>
-                <p>Taxes & fees</p>
-                <p>News</p>
-            </div>
-            <div className='footer-info-second-links'>
-            <p className='footer-info-title'>User agreement</p>
-                <p>Privacy policy</p>
-                <p>Cookie policy</p>
-                <p>Copyright policy</p>
-                <p>Brand policy</p>
-                <p>Community guidelines</p>
-            </div>
-        </div>
-        <div className='footer-info-container-prop'>
-        <div className='footer-info-options'>
-            <div className='footer-info-options-first'>
-              <div className='footer-info-options-truck'>
-                  <LocalShippingOutlinedIcon />
-                  <div className='footer-info-options-truck-para'>
-                  <span className='footer-info-options-para'>Fast and free delivery</span>
-                  <span className='footer-info-options-delviery'>Free delivery for all orders over $200</span>
-                  </div>
+          
 
-              </div>
-              <div className='footer-info-options-truck'>
-                  <AutorenewOutlinedIcon />
-                  <div className='footer-info-options-truck-para'>
-                  <span className='footer-info-options-para'>Fast and free delivery</span>
-                  <span className='footer-info-options-delviery'>We return money within 30 days</span>
-                  </div>
-                  
-              </div>
-              <div className='footer-info-options-truck'>
-                  <SupportAgentOutlinedIcon />
-                  <div className='footer-info-options-truck-para'>
-                  <span className='footer-info-options-para'>24/7 customer support</span>
-                  <span className='footer-info-options-delviery'>Friendly 24/7 customer support</span>
-                  </div>
-                  </div>
-              <div className='footer-info-options-truck'>
-                  <CreditCardOutlinedIcon />
-                  <div className='footer-info-options-truck-para'>
-                  <span className='footer-info-options-para'>Secure online payment</span>
-                  <span className='footer-info-options-delviery'>We possess SSL / Secure сertificate</span>
-                  </div>
-                  
-              </div>
-            </div>
         </div>
-        <div className='breakline'></div>
-        <div className='footer-info-about'>
-          <div className='footer-info-about-info'>
-            <div className='footer-info-about-rest'>
-              <ul>
-                <li className='tb'>TB</li>
-                <li>About us</li>
-                <li>Support</li>
-                <li>Terms of use</li>
-                <li>Contact us</li>
-              </ul>
+        <div className='footer-info-second-links'>
+            <p className='footer-info-title'>Customer zone</p>
+              <Link to={'/shippingrates'}><p>Shipping rates & policies</p></Link>
+              <Link to={'/refunds'}><p>Refunds & replacements</p></Link>
+              <Link to={`/ordertracking`}><p>Order tracking</p></Link>
+              <Link to={`/deliveryinfo`}><p>Delivery info</p></Link>
+              <Link to={`/taxesfees`}><p>Taxes & fees</p></Link>
+              <Link to={`/news`}><p>News</p></Link>
+        </div>
+        <div className='footer-info-second-links'>
+            <p className='footer-info-title'>User agreement</p>
+              <Link to={`/privacypolicy`}><p>Privacy policy</p></Link>
+              <Link to={`/cookiepolicy`}><p>Cookie policy</p></Link>
+              <Link to={`/copyrightpolicy`}><p>Copyright policy</p></Link>
+              <Link to={`/brandpolicy`}><p>Brand policy</p></Link>
             </div>
-            <div className='footer-info-about-social'>
-                <FacebookOutlinedIcon className='facebook' />
-                <InstagramIcon className='instagram' />
-                <YouTubeIcon className='youtube' />
-                <TwitterIcon className='twitter' />
-                
-            </div>
+    </div>
+    <div className='footer-info-container-prop'>
+    <div className='footer-info-options'>
+        <div className='footer-info-options-first'>
+          <div className='footer-info-options-truck'>
+              <LocalShippingOutlinedIcon />
+              <div className='footer-info-options-truck-para'>
+              <span className='footer-info-options-para'>Fast and free delivery</span>
+              <span className='footer-info-options-delviery'>Free delivery for all orders over $200</span>
+              </div>
+
+          </div>
+          <div className='footer-info-options-truck'>
+              <AutorenewOutlinedIcon />
+              <div className='footer-info-options-truck-para'>
+              <span className='footer-info-options-para'>Fast and free delivery</span>
+              <span className='footer-info-options-delviery'>We return money within 30 days</span>
+              </div>
+              
+          </div>
+          <div className='footer-info-options-truck'>
+              <SupportAgentOutlinedIcon />
+              <div className='footer-info-options-truck-para'>
+              <span className='footer-info-options-para'>24/7 customer support</span>
+              <span className='footer-info-options-delviery'>Friendly 24/7 customer support</span>
+              </div>
+              </div>
+          <div className='footer-info-options-truck'>
+              <CreditCardOutlinedIcon />
+              <div className='footer-info-options-truck-para'>
+              <span className='footer-info-options-para'>Secure online payment</span>
+              <span className='footer-info-options-delviery'>We possess SSL / Secure сertificate</span>
+              </div>
+              
           </div>
         </div>
-        <div className='footer-info-company'>
-              <div className='footer-info-company-first'>
-              <span className='rights'>&copy; All rights reserved.</span>
-              <span className='rights'> Made by</span>
-              <span className='tb-foo'>TB</span>
-              </div>
+    </div>
+    <div className='breakline'></div>
+    <div className='footer-info-about'>
+      <div className='footer-info-about-info'>
+        <div className='footer-info-about-rest'>
+          <ul>
+            <li className='tb'>TB</li>
+            <Link to={`/aboutus`}><li>About us</li></Link>
+            <Link to={`/support`}><li>Support</li></Link>
+            <Link to={`/contactus`}><li>Contact us</li></Link>
+          </ul>
         </div>
+        <div className='footer-info-about-social'>
+            <FacebookOutlinedIcon className='facebook' />
+            <InstagramIcon className='instagram' />
+            <YouTubeIcon className='youtube' />
+            <TwitterIcon className='twitter' />
+            
         </div>
-        
-
       </div>
+    </div>
+    <div className='footer-info-company'>
+          <div className='footer-info-company-first'>
+          <span className='rights'>&copy; All rights reserved.</span>
+          <span className='rights'> Made by</span>
+          <span className='tb-foo'>TB</span>
+          </div>
+    </div>
+    </div>
+    
+
+  </div>
     </>
   )
 }

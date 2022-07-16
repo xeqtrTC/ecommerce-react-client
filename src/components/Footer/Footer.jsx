@@ -27,20 +27,19 @@ export default function Footer() {
         </div>
         <div className='footer-info-second-links'>
             <p className='footer-info-title'>Customer zone</p>
-            <p>Shipping rates & policies</p>
-            <p>Refunds & replacements</p>
-            <p>Order tracking</p>
-            <p>Delivery info</p>
-            <p>Taxes & fees</p>
-            <p>News</p>
+              <Link to={'/shippingrates'}><p>Shipping rates & policies</p></Link>
+              <Link to={'/refunds'}><p>Refunds & replacements</p></Link>
+              <Link to={`/ordertracking`}><p>Order tracking</p></Link>
+              <Link to={`/deliveryinfo`}><p>Delivery info</p></Link>
+              <Link to={`/taxesfees`}><p>Taxes & fees</p></Link>
+              <Link to={`/news`}><p>News</p></Link>
         </div>
         <div className='footer-info-second-links'>
             <p className='footer-info-title'>User agreement</p>
-                <p>Privacy policy</p>
-                <p>Cookie policy</p>
-                <p>Copyright policy</p>
-                <p>Brand policy</p>
-                <p>Community guidelines</p>
+              <Link to={`/privacypolicy`}><p>Privacy policy</p></Link>
+              <Link to={`/cookiepolicy`}><p>Cookie policy</p></Link>
+              <Link to={`/copyrightpolicy`}><p>Copyright policy</p></Link>
+              <Link to={`/brandpolicy`}><p>Brand policy</p></Link>
             </div>
     </div>
     <div className='footer-info-container-prop'>
@@ -85,10 +84,9 @@ export default function Footer() {
         <div className='footer-info-about-rest'>
           <ul>
             <li className='tb'>TB</li>
-            <li>About us</li>
-            <li>Support</li>
-            <li>Terms of use</li>
-            <li>Contact us</li>
+            <Link to={`/aboutus`}><li>About us</li></Link>
+            <Link to={`/support`}><li>Support</li></Link>
+            <Link to={`/contactus`}><li>Contact us</li></Link>
           </ul>
         </div>
         <div className='footer-info-about-social'>

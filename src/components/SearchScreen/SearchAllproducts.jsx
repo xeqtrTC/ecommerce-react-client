@@ -31,8 +31,7 @@ export default function SearchAllProducts() {
         });
       useEffect(() => (window.onresize = updateSize), []);
       console.log(size.x, size.y)
-      const test = size?.x && size?.y - 20
-      console.log(test);
+    //   const test = math.floo
 
     // trenutni postovi
     const indexOfLastPost = currentPage * postsPerPage

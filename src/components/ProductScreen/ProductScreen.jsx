@@ -73,7 +73,7 @@ export default function ProductScreen() {
           ) : (
             <>
 
-            <div className='product-screen-container'>
+            <div className='product-screen-container' >
           <div className='product-screen-image'>
           <Toast />
 
@@ -117,7 +117,7 @@ export default function ProductScreen() {
           
       </div>
       <div className='linebreal-product-two '></div>
-      <div className='product-screen-review'>
+      <div  className='product-screen-review'  >
       <div className='product-screen-left'>
         
       {
@@ -126,7 +126,7 @@ export default function ProductScreen() {
             <>
            
          
-           <div className='product-screen-left-text' key={review.id}>
+           <div  className='product-screen-left-text' key={review.id}>
            <p>{review.reviewer_name}</p>
 
             </div>
