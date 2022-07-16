@@ -1,85 +1,145 @@
 import React from 'react'
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 
 import './Shippingrates.css';
 
 export  function Shippingrates() {
   return (
-    <div>TODO</div>
+    <>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>
   )
 }
 
 export  function RefundsReplacements() {
     return (
-        <div>TODO</div>
+        <>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>
         )
 }
 
 
 export  function OrderTracking() {
     return (
-        <div>TODO</div>
+        <>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>
         )
 }
 
 
 export  function DeliveryInfo() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>        )
 }
   
 export  function TaxesFees() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>        )
 }
 
 export  function News() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>        )
 }
 
 export  function PrivacyPolicy() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>        )
 }
 
 export  function CookiePolicy() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+
+    
+    <Footer />
+    </>        )
 }
 
 export  function CopyrightPolicy() {
     return (
-        <div>TODO</div>
-
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>
     )
 }
 
 export  function BrandPolicy() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>        )
 }
 
 export  function AboutUs() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>        )
 }
 
 export  function Support() {
     return (
-        <div>TODO</div>
+        <>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>
         )
 }
 
 export  function ContactUs() {
     return (
-        <div>TODO</div>
-        )
+<>
+    <Header />
+    <div className='width-container-footer-80'>TODO</div>
+    
+    <Footer />
+    </>      
+     )
 }

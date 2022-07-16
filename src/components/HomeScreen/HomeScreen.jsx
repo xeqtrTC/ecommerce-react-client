@@ -85,11 +85,15 @@ export default function HomeScreen({ slides }) {
     setCurrentItem(productsSliced)
     setCurrentItemFocus(productsSliced);
   }, [products])
-
   const setIndexShow = (id) => {
     const filterItems = productsSliced.filter((item) => item.id === id)
+    const filterItemsFocus = filterItems.map((item) => {
+      return (
+        item.id
+      )
+    })
     setCurrentItem(filterItems)
-    setCurrentItemFocus(filterItems)
+    setCurrentItemFocus(filterItemsFocus)
   }
   console.log('CURRENT ITEM', currentItem);
   console.log('CURRENT FOCUS', currentItemFocus);  
@@ -120,7 +124,7 @@ export default function HomeScreen({ slides }) {
                       {
                         productsSliced?.map((productSlice) => {
                           return (
-                            <div onClick={() => setIndexShow(productSlice.id)} id='test' className='homescreen-product-left-item' key={productSlice.id}>
+                            <div onClick={() => setIndexShow(productSlice.id)}  id='test' className='homescreen-product-left-item' key={productSlice.id}>
                             <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${productSlice.image}`} alt='slika' />                     
                           <div className='homescreen-product-left-item-product'>
                             <p id='test'>{productSlice.name}</p>
