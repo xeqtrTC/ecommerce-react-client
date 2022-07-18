@@ -4,7 +4,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import SecurityIcon from '@mui/icons-material/Security';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { editUser, updateUser } from '../../../actions/userActions';
 import { toast } from 'react-toastify';
@@ -25,8 +25,13 @@ import { USER_UPDATE_RESET } from '../../../constants/userConstants';
 export default function EditUserScreen() {
     const params = useParams();
     const { id } = params;
+    const navigate = useNavigate();
     const userrr = useSelector((state) => state.userEdit);
+    const userUp = useSelector((state) => state.userUpdate);
+
+    const { loading: LoadingUpdate, success: successUpdate } = userUp;
     const { error, loading, user} = userrr;
+    
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -34,9 +39,7 @@ export default function EditUserScreen() {
     const [isAdmin, setIsAdmin ] = useState(0);
     const [date, setDate ] = useState('')
 
-    const userUp = useSelector((state) => state.userUpdate);
-
-    const { loading: LoadingUpdate, success: successUpdate } = userUp;
+   
     const ToastObjects = {
         pauseOnFocusLoss: false,
         draggable: false,
@@ -44,14 +47,12 @@ export default function EditUserScreen() {
         pauseOnHover: false,
         autoClose: 2000
     };
+    console.log(user);
 
 useEffect(() => {
     if(successUpdate) {
         dispatch({ type: USER_UPDATE_RESET})
-        dispatch(editUser(id))
-
         toast.success('User has been updated', ToastObjects)
-
     } else if(!user){
         dispatch(editUser(id))
     } else {
@@ -62,11 +63,13 @@ useEffect(() => {
         setDate(user[0].date)
     
     }
-}, [dispatch, successUpdate, user,  id])
+}, [dispatch, user, successUpdate,  id])
 const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUser({ id, name, email, password, isAdmin}))
 }
+
+
 
   return (
     <>

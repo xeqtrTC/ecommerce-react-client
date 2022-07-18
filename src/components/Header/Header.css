@@ -61,7 +61,7 @@
 }
 
 .bottom-header-rest form {
-    width: 18.1rem;
+    /* width: 18.1rem; */
     margin-right: 5%;
 }
 .bottom-header-links img {
@@ -115,7 +115,6 @@
 .bottom-header-img {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
     margin-right: 2rem;
 }
 .bottom-header-length span {
@@ -281,6 +280,10 @@
     }
     .bottom-header-links span {
         font-size: 17px;
+    }
+    
+    .search-live {
+        width: 70%;
     }
    
 }

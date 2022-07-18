@@ -65,9 +65,10 @@ export const updateUser = (user) => async (dispatch, getState) => {
     const { userSignIn: {userInfo},} = getState();
 
     try {
-        const { data } = Axios.post(`https://evening-bayou-13792.herokuapp.com/api/users/update/${user.id}`, user, {
+        const { data } = await Axios.post(`https://evening-bayou-13792.herokuapp.com/api/users/update/${user.id}`, user, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         })
+        console.log(data);
         dispatch({ type: USER_UPDATE_SUCCESS, payload: data})
         dispatch({ type: USER_EDIT_SUCCESS, payload: data})
     } catch(error) {

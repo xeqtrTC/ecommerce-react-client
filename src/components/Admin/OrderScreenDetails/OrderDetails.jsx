@@ -119,7 +119,7 @@ useEffect(() => {
                                          </div>
                                      </div>
                                      <div className='orderdetails-info-product-button'>
-                                         <button >Deliver order</button>
+                                         <button >{order.status === 'Delivered' ? 'Delivered' : 'Deliver order'}</button>
                                      </div>
                                  </div>
  

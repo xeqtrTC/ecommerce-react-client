@@ -24,6 +24,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../../actions/productActions';
 import Slider from './Slider';
 
+import '../Footer/Footer.css';
+
 export default function HomeScreen({ slides }) {
 
 
@@ -85,6 +87,7 @@ export default function HomeScreen({ slides }) {
     setCurrentItem(productsSliced)
     setCurrentItemFocus(productsSliced);
   }, [products])
+
   const setIndexShow = (id) => {
     const filterItems = productsSliced.filter((item) => item.id === id)
     const filterItemsFocus = filterItems.map((item) => {

@@ -1,29 +1,31 @@
 .footer-info-first-container {
     font-family: 'M PLUS 2', sans-serif;
     background-color: #37384E;
-    height: 20rem;
     padding: 4rem 4rem;
-    display: flex
+    display: flex;
+    justify-content: center;
   }
   .footer-absolute {
-      bottom: 1;
+    bottom: 1;
   }
-  .footer-info-first-links  {
+  .footer-info-first-links {
     color: #C3C4CA;
-    width: 30rem;
+  }
+  .footer-absolute a {
+    color: #C3C4CA;
+    text-decoration: none;
   }
   .footer-info-title {
     font-weight: 600;
     color: #fff;
     font-size: 18px;
   }
-  .footer-info-first-container p:hover {
+  .footer-info-first-container a:hover {
     color: #fff;
     cursor: pointer;
   }
   .footer-info-second-links {
     color: #C3C4CA;
-    width: 30rem;
   }
   .footer-info-container-prop {
     background-color: #232432;
@@ -32,16 +34,17 @@
   .footer-info-options {
     display: flex;
     justify-content: center;
-    padding: 4rem;
   }
   .footer-info-options-first {
     display: flex;
   }
   .footer-info-options-truck {
-    width: 20rem;
     display: flex;
     align-items: center;
-  }
+    padding: 4rem;
+    justify-content: center;
+  } 
+ 
   .footer-info-options-truck svg {
     width: 3rem;
     height: 3rem;
@@ -142,7 +145,7 @@
     font-size: 16px;
   }
   @media screen and (max-width: 960px) {
-    .product-categories {
+    /* .product-categories {
       width: 85%;
       margin: -6rem auto;
   
@@ -158,8 +161,11 @@
     .homescreen-product-right-img {
       margin: 0;
       margin-top: 2rem;
+    } */
+    .footer-info-first-container {
+      flex-direction: column;
     }
-    .product-categories-info {
+    /* .product-categories-info {
       width: 6.5rem;
       height: 4rem;
     }
@@ -174,7 +180,7 @@
     .product-categories-info-name span {
       font-size: 14px;
       margin-left: 10px;
-    }
+    } */
     .footer-info-title {
       font-size: 14px;
     }
@@ -191,14 +197,26 @@
       padding: 1rem;
     }
     .footer-info-options {
-      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
     }
-    .footer-info-options-first svg {
-      position: absolute;
+    .footer-info-options-first {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .footer-info-options-first {
+      /* width: 100%; */
+    }
+    /* .footer-info-options-first svg {
+      position: absolute; 
       margin-top: -5.2rem;
-      margin-left: 12px;    
+      margin-left: 1px;    
       width: 2rem;
       height: 2rem;
+    } */
+    .footer-info-options-truck {
+      padding: 0 1rem;
+      display: flex;
     }
     .footer-info-options-truck-para span {
       font-size: 13px;
