@@ -1,5 +1,5 @@
 .search-container {
-    width: 89%;
+    width: 80%;
     margin: 0 auto;
     background-color: white;
     padding: 1rem;
@@ -8,8 +8,8 @@
 .search-one  {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+   
 }
 .search-one  a{
     text-decoration: none;
