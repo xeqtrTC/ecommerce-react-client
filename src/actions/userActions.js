@@ -51,7 +51,7 @@ export const usersList = () => async (dispatch) => {
 export const emailVerification = (token) => async (dispatch) => {
     dispatch({type: USER_EMAILVERIFICATION_REQUEST})
     try {
-        const { data } = await Axios.get('https://evening-bayou-13792.herokuapp.com/api/users/verifyaccount', { token });
+        const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/api/users/verifyaccount', { token });
         console.log(data);
         dispatch({ type: USER_EMAILVERIFICATION_SUCCESS, payload: data})
     }catch(error) {
