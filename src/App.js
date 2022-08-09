@@ -32,6 +32,7 @@ import ReviewListScreen from './components/Admin/ReviewScreen/ReviewList';
 import SearchProductsInput from './components/SearchScreen/SearchProductsInput';
 import {AboutUs, BrandPolicy, ContactUs, CookiePolicy, CopyrightPolicy, DeliveryInfo, News, OrderTracking, PrivacyPolicy, RefundsReplacements, Shippingrates, Support, TaxesFees} from './components/FooterInfo/Shippingrates';
 import ErrorPage from './components/404/ErrorPage';
+import VerifyAccount from './components/VerifyAccount/VerifyAccount';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
         <Route path='/search' element={<SearchAllProducts />}></Route>
         <Route path='/search/:category' element={<SearchScreen />}></Route>
         <Route path='/search/query/:keyword' element={<SearchProductsInput />}></Route>
+        <Route path='/verify/:token' element={<VerifyAccount />}></Route>
         <Route path='/product/:id' element={<ProductScreen />} exact></Route>
         <Route path='/signin/' element={<LoginScreen />}></Route>
         <Route path='/orderhistory' element={<OrderHistory />}></Route>

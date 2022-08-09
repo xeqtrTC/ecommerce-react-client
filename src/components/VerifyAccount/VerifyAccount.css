@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@500&display=swap');
+
+.verify-container {
+    margin-top: 2rem;
+    font-family: 'M PLUS 2', sans-serif;
+
+}
+.verify-icon {
+    display: flex;
+    justify-content: center;
+}
+.verify-icon svg {
+    width: 4rem;
+    height: 4rem;
+    color: rgb(0, 177, 0);
+}
+.borderline {
+    background-color: grey;
+    width: 40%;
+    margin: 1rem auto;
+    height: 1px;
+}
+.verify-text {
+    margin: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+.verify-text p {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
