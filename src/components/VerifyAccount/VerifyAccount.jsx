@@ -16,9 +16,9 @@ export default function VerifyAccount() {
     console.log(params);
     const dispatch = useDispatch();
     const {isLoading, success, isError} = useSelector((state) => state.emailVerificationUser);
-
+    console.log(isLoading, success, isLoading);
     useEffect(() => {
-        dispatch(emailVerification(token));
+        dispatch(emailVerification({token}));
     }, [dispatch, emailVerification])
 
     return (
