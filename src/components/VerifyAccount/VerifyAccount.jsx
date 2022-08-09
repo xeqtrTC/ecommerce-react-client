@@ -12,8 +12,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 export default function VerifyAccount() {
-    const params = useParams();
-    console.log(params);
+    const {token} = useParams();
+    console.log(token);
     const dispatch = useDispatch();
     const {isLoading, success, isError} = useSelector((state) => state.emailVerificationUser);
     console.log(isLoading, success, isLoading);
