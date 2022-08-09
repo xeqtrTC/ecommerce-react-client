@@ -20,12 +20,9 @@ export default function ProductScreen() {
   const dispatch = useDispatch();
   const [ review, setReview] = useState('');
   const { id: productId } = useParams(); 
-  console.log(productId);
   const userSign = useSelector((state) => state.userSignIn)
   const  {userInfo} = userSign
-  console.log(userInfo);
   const [qty, setQty ] = useState(1)
-  console.log(review);
   const productEdit = useSelector((state) => state.productEdit);
   const { loading, error, product } = productEdit;
   const reviewList = useSelector((state) => state.reviewAdd);
@@ -39,7 +36,6 @@ export default function ProductScreen() {
 
 
   const {error: reviewAddError, loading: reviewAddLoading, success: reviewAddSuccess } = reviewList;
-  console.log(product)
   
   useEffect(() => {
     if(reviewAddSuccess) {
@@ -73,11 +69,11 @@ export default function ProductScreen() {
           ) : (
             <>
 
-            <div className='product-screen-container' >
-          <div className='product-screen-image'>
+            <div className='product-screen-container'  >
+          <div  className='product-screen-image' >
           <Toast />
 
-            <span className='product-screen-p-h1'>{product[0].name}</span>
+            <span className='product-screen-p-h1' key={product[0].id} >{product[0].name}</span>
             <div className='product-screen-image-real'>
               <img src={`https://res.cloudinary.com/htbceqmbf/image/upload/v1657502658/${product[0].image}`} alt='slika' />
             </div>

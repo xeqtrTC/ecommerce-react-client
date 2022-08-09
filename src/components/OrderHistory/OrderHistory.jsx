@@ -16,12 +16,10 @@ export default function OrderHistory() {
     const { name } = userInfo;
 
     const { error, loading, order} = useSelector((state) => state.orderHistory)
-  console.log(order);
     const params = useParams();
 
 
 
-  console.log(name);
   useEffect(() => {
     dispatch(orderHistory(name))
   } ,[dispatch, name])

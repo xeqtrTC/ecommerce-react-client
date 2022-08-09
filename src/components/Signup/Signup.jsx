@@ -30,7 +30,6 @@ export default function SignupScreen() {
 
     const userRegister = useSelector((state) => state.userRegister)
     const { userInfo, error } = userRegister
-    console.log(userInfo, error)
 
     const dispatch = useDispatch()
     const submitHandler = (e) => {
@@ -41,14 +40,13 @@ export default function SignupScreen() {
 
         } else {
             dispatch(register(name, email, password))
-
         }
     }
-    useEffect(() => {
-        if(userInfo) {
-            Navigate(redirect)
-        }
-    }, [Navigate, redirect, userInfo])
+    // useEffect(() => {
+    //     if(userInfo) {
+    //         Navigate(redirect)
+    //     }
+    // }, [Navigate, redirect, userInfo])
     return (
         <>
         <Header />

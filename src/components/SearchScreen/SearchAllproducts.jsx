@@ -30,7 +30,6 @@ export default function SearchAllProducts() {
           y: window.innerHeight
         });
       useEffect(() => (window.onresize = updateSize), []);
-      console.log(size.x, size.y)
     //   const test = math.floo
 
     // trenutni postovi

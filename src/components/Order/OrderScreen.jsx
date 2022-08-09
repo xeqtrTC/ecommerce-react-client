@@ -11,12 +11,9 @@ import { createOrder } from '../../actions/orderActions';
 export default function OrderScreen() {
     const Navigate = useNavigate();
     const cart = useSelector((state) => state.cart)
-    console.log(cart)
     const {aboutOrder } = cart;
-    console.log(aboutOrder);
     const orderCreate = useSelector((state) => state.orderCreate);
     const { loading, success, error, order } = orderCreate
-    console.log(orderCreate)
     const dispatch = useDispatch()
    cart.itemsPrice  = (cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0))
     const placeOrderHandler = () => {

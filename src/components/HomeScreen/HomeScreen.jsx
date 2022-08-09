@@ -28,56 +28,12 @@ import '../Footer/Footer.css';
 
 export default function HomeScreen({ slides }) {
 
+  const dispatch = useDispatch();
 
-  const [firstItem, setFirstItem] = useState(true);
-  const [firstItemFocus, setFirstItemFocus] = useState(true);
-
-  const [secondItem, setSecondItem] = useState(false);
-  const [secondItemFocus, setSecondItemFocus] = useState(false);
-  
-  const [thirdItem, setThirdItem] = useState(false);
-  const [thirdItemFocus, setThirdItemFocus] = useState(false);
-
-  
-  const showFirstItem = () => {
-    setFirstItem(true);
-    setFirstItemFocus(true);
-    setSecondItem(false);
-    setSecondItemFocus(false);
-    setThirdItem(false);
-    setThirdItemFocus(false);
-  }
-
-  const showSecondItem = () => {
-    setSecondItem(true);
-    setSecondItemFocus(true);
-    setFirstItem(false);
-    setFirstItemFocus(false);
-    setThirdItem(false);
-    setThirdItemFocus(false);
-  }
-
-  const showThirdItem = () => {
-    setThirdItem(true);
-    setThirdItemFocus(true);
-    setFirstItem(false);
-    setFirstItemFocus(false);
-    setSecondItem(false);
-    setSecondItemFocus(false);
-   
-  }
-
-
-
-
-
-    const dispatch = useDispatch();
   const productList = useSelector( (state) => state.productList);
   const { loading, error, products } = productList
-  console.log(products);
 
   const productsSliced = products?.slice(2,5);
-  console.log(productsSliced);
 
   const [current, setCurrent] = useState(0);
     const length = sliderData.length;
@@ -98,16 +54,8 @@ export default function HomeScreen({ slides }) {
     setCurrentItem(filterItems)
     setCurrentItemFocus(filterItemsFocus)
   }
-  console.log('CURRENT ITEM', currentItem);
-  console.log('CURRENT FOCUS', currentItemFocus);  
-    const nextSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1)
-    }
-    const prevSlide = () => {
-        setCurrent(current === 0 ? length - 1 : current - 1)
-    }
-    console.log(current);
 
+  
 
     useEffect(() => {
         dispatch(listProducts())

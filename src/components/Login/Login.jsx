@@ -19,7 +19,6 @@ export default function LoginScreen() {
 
     const userSignIn = useSelector((state) => state.userSignIn)
     const { userInfo, error } = userSignIn
-    console.log(userInfo, error)
 
     const dispatch = useDispatch()
     const submitHandler = (e) => {

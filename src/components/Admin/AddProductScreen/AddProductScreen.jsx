@@ -91,12 +91,9 @@ export default function AddProductScreen() {
         setLoadingUpload(true);
          try {
             const { data } = await Axios.post('https://evening-bayou-13792.herokuapp.com/upload/', bodyFormData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${userInfo.token}`
-                }
+               
             })
-            
+            console.log(data);
             const { public_id } = data;
             setImageName(public_id);
             console.log(public_id);

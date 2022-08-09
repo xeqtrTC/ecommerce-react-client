@@ -16,7 +16,6 @@ export default function SearchProductsInput({match}) {
     const dispatch = useDispatch();
     const params = useParams();
     const { keyword } = params
-    console.log(keyword);
     const searchList = useSelector((state) => state.search);
     const { loading, error, keyword: keywordList } = searchList
 

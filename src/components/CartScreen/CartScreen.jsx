@@ -20,10 +20,8 @@ export default function CartScreen(props) {
     const qtyInUrl = new URLSearchParams(search).get('qty');
     const qty = qtyInUrl ? Number(qtyInUrl) : 1;
     const cart = useSelector((state) => state.cart)
-    console.log(cart)
     const  {cartItems} = cart;
     const dispatch = useDispatch()
-    console.log(cartItems)
     const rows1 = () => {
       <h2>Ukupna cijena : &euro;{cartItems.reduce((a, c) => a + c.price * c.qty, 0)}</h2>
 
