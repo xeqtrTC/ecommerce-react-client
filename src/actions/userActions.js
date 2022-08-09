@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import {USER_LASTTEN_REQUEST, USER_LASTTEN_SUCCESS, USER_LASTTEN_FAIL, USER_DELETE_REQUEST, USER_DELETE_FAIL, USER_DELETE_SUCCESS, USER_ADD_REQUEST, USER_ADD_SUCCESS, USER_ADD_FAIL, USER_UPDATE_REQUEST , USER_UPDATE_SUCCESS, USER_UPDATE_FAIL, USER_EDIT_REQUEST, USER_EDIT_SUCCESS, USER_EDIT_FAIL, USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LIST_FAIL, USER_SIGNIN_SUCCESS, USER_SIGNIN_REQUEST, USER_SIGNIN_FAIL, USER_SIGNOUT, USER_REGISTER_FAIL, USER_REGISTER_SUCCESS } from "../constants/userConstants"
+import {USER_EMAILVERIFICATION_REQUEST, USER_EMAILVERIFICATION_SUCCESS, USER_EMAILVERIFICATION_FAIL, USER_EMAILVERIFICATION_RESET,USER_LASTTEN_REQUEST, USER_LASTTEN_SUCCESS, USER_LASTTEN_FAIL, USER_DELETE_REQUEST, USER_DELETE_FAIL, USER_DELETE_SUCCESS, USER_ADD_REQUEST, USER_ADD_SUCCESS, USER_ADD_FAIL, USER_UPDATE_REQUEST , USER_UPDATE_SUCCESS, USER_UPDATE_FAIL, USER_EDIT_REQUEST, USER_EDIT_SUCCESS, USER_EDIT_FAIL, USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LIST_FAIL, USER_SIGNIN_SUCCESS, USER_SIGNIN_REQUEST, USER_SIGNIN_FAIL, USER_SIGNOUT, USER_REGISTER_FAIL, USER_REGISTER_SUCCESS } from "../constants/userConstants"
 
 export const signin = (name, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { name, password}})
@@ -45,6 +45,17 @@ export const usersList = () => async (dispatch) => {
 
     }catch(error) {
         dispatch({ type: USER_LIST_FAIL, payload: error.message})
+    }
+
+}
+export const emailVerification = (token) => async (dispatch) => {
+    dispatch({type: USER_EMAILVERIFICATION_REQUEST})
+    try {
+        const { data } = await Axios.get('https://evening-bayou-13792.herokuapp.com/api/users/verifyaccount', { token });
+        console.log(data);
+        dispatch({ type: USER_EMAILVERIFICATION_SUCCESS, payload: data})
+    }catch(error) {
+        dispatch({ type: USER_EMAILVERIFICATION_FAIL, payload: error.message})
     }
 
 }

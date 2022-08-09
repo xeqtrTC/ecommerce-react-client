@@ -4,9 +4,23 @@ import Header from '../Header/Header';
 import { useParams } from 'react-router-dom';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import './VerifyAccount.css';
+import { emailVerification } from '../../actions/userActions';
+import { useSelect } from '@mui/base';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+
+
 export default function VerifyAccount() {
     const params = useParams();
     console.log(params);
+    const dispatch = useDispatch();
+    const {isLoading, success, isError} = useSelector((state) => state.emailVerificationUser);
+
+    useEffect(() => {
+        dispatch(emailVerification(token));
+    }, [dispatch, emailVerification])
+
     return (
     <>
         <Header />
