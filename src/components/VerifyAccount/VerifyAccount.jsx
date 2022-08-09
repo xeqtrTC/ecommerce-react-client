@@ -20,7 +20,7 @@ export default function VerifyAccount() {
     console.log(isLoading, success, isLoading);
     useEffect(() => {
         if(success) {
-            navigate('/login')
+            navigate('/signin')
         }
     }, [success])
     useEffect(() => {
