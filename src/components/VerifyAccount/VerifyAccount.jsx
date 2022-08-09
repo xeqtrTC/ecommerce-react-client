@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import './VerifyAccount.css';
 import { emailVerification } from '../../actions/userActions';
@@ -19,11 +19,6 @@ export default function VerifyAccount() {
     const {isLoading, success, isError} = useSelector((state) => state.emailVerificationUser);
     console.log(isLoading, success, isLoading);
     useEffect(() => {
-        if(success) {
-            navigate('/signin')
-        }
-    }, [success])
-    useEffect(() => {
         dispatch(emailVerification(token));
     }, [dispatch, emailVerification])
 
@@ -37,7 +32,12 @@ export default function VerifyAccount() {
                 <div className='borderline'></div>
                 <div className='verify-text'>
                     <p>Your email has been activated, you can login now.</p>
+
                 </div>
+                <div className='verfiy-link'>
+                    <p>Please login </p> <Link to='/signin'> here</Link>
+                </div>
+
             </div>
         <Footer />
     </>

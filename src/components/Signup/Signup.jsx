@@ -30,7 +30,9 @@ export default function SignupScreen() {
 
     const userRegister = useSelector((state) => state.userRegister)
     const { userInfo, error } = userRegister
-
+    console.log(error);
+    console.log(userInfo)
+    const { message } = userInfo;
     const dispatch = useDispatch()
     const submitHandler = (e) => {
         
@@ -40,6 +42,7 @@ export default function SignupScreen() {
 
         } else {
             dispatch(register(name, email, password))
+            
         }
     }
     // useEffect(() => {
@@ -78,7 +81,10 @@ export default function SignupScreen() {
                     <div className='signup-submit'>
                         <div className='signup-error'>
                             {error && <p>{error}</p>}
-                        </div>                        
+                        </div>      
+                        <div className='signup-error'>
+                            {userInfo && <p>{userInfo.message}</p>}
+                        </div>                    
                         <div className='submit-signup-button'>
                         <button type='submit'>Signup</button>
                         <Link to='/signin'><span>Already registered? Login</span></Link>

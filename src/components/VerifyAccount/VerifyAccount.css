@@ -3,7 +3,7 @@
 .verify-container {
     margin-top: 2rem;
     font-family: 'M PLUS 2', sans-serif;
-
+    
 }
 .verify-icon {
     display: flex;
@@ -30,4 +30,23 @@
     margin: 0;
     font-size: 20px;
     font-weight: bold;
+}
+.verfiy-link {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.verfiy-link p {
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+}
+.verfiy-link a {
+    text-decoration: none;
+    color: black;
+    background-color:  #766DF4;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
 }
