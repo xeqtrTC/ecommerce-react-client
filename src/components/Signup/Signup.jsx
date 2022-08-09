@@ -32,7 +32,6 @@ export default function SignupScreen() {
     const { userInfo, error } = userRegister
     console.log(error);
     console.log(userInfo)
-    const { message } = userInfo;
     const dispatch = useDispatch()
     const submitHandler = (e) => {
         
