@@ -6,7 +6,7 @@ E-commerce za prodaju računarske opreme
 <li>Registrovanje, autentifikacija i email verifikacija.</li>
 <li>Pregled i naručivanje proizvoda.</li>
 <li>Uvid u istoriju korisnikovih aktivnosti na sajtu.</li>
-<li>-Pretraga proizvodu po više filtera.</li>
+<li>Pretraga proizvodu po više filtera.</li>
 <li>Dodavanje komentara.</li>
 </ul>
 
