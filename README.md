@@ -9,6 +9,7 @@ E-commerce za prodaju računarske opreme
 <li>-Pretraga proizvodu po više filtera.</li>
 <li>Dodavanje komentara.</li>
 </ul>
+
 # Funkcionalnosti admina
 Funkcionalnosti admina su realizovane kroz poseban admin panel
 <ul>
